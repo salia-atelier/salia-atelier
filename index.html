@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Salia Atelier — Considered clothing, made in Kiserian</title>
+<meta name="description" content="Salia Atelier is a boutique fashion atelier in Kiserian, Kenya. Curated, quality clothing made with care. Order on WhatsApp." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light dark;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    --paper:   #F0E9DC;
+    --paper-2: #E8DECB;
+    --cream:   #FBF8F2;
+    --ink:     #2A2018;
+    --ink-soft:#6B5D4F;
+    --line:    #D8CBB4;
+    --brass:   #A97E43;
+    --brass-deep:#8C6531;
+    --clay:    #97503A;
+    --shadow:  22px 30px 60px -34px rgba(42,32,24,.45);
+    --shadow-sm: 10px 14px 30px -20px rgba(42,32,24,.4);
+  }
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 68px); -webkit-text-size-adjust:100%; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Mulish", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: clamp(15px, 1rem + .15vw, 17px);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  /* subtle paper grain */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  }
+  main, header, footer{ position:relative; z-index:1; }
+
+  h1,h2,h3{ font-family:"Fraunces", Georgia, "Times New Roman", serif; font-weight:500; margin:0; line-height:1.08; letter-spacing:-.01em; }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background: var(--brass); color:#fff; }
+  :focus-visible{ outline:2.5px solid var(--brass); outline-offset:3px; border-radius:3px; }
+
+  .wrap{ width:min(1180px, 92vw); margin-inline:auto; }
+  .section{ padding: clamp(64px, 9vw, 118px) 0; }
+  .eyebrow{
+    font-family:"Mulish", sans-serif; font-weight:700; font-size:.74rem;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--brass-deep);
+    display:inline-flex; align-items:center; gap:.6em; margin:0 0 1.1rem;
+  }
+  .eyebrow::before{ content:""; width:26px; height:1.5px; background:var(--brass); display:inline-block; }
+  .lead{ font-size:clamp(1.06rem,1rem + .5vw,1.32rem); color:var(--ink-soft); max-width:56ch; }
+
+  /* ---------- top nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    top: env(safe-area-inset-top, 0px);
+    backdrop-filter:saturate(1.2) blur(9px);
+    background:color-mix(in srgb, var(--paper) 82%, transparent);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  .nav.scrolled{ border-bottom-color:var(--line); background:color-mix(in srgb, var(--paper) 92%, transparent); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; height:64px; }
+  .brandmark{ display:flex; align-items:baseline; gap:.5rem; text-decoration:none; }
+  .brandmark .b1{ font-family:"Fraunces"; font-weight:600; font-size:1.32rem; letter-spacing:-.01em; }
+  .brandmark .b2{ font-size:.62rem; letter-spacing:.34em; text-transform:uppercase; color:var(--brass-deep); font-weight:700; }
+  .nav-links{ display:flex; align-items:center; gap:1.9rem; list-style:none; margin:0; padding:0; }
+  .nav-links a{ text-decoration:none; font-size:.86rem; font-weight:600; color:var(--ink); letter-spacing:.02em; position:relative; padding:.3rem 0; }
+  .nav-links a::after{ content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1.5px; background:var(--brass); transition:right .28s ease; }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after{ right:0; }
+  .nav-wa{
+    display:inline-flex; align-items:center; gap:.5rem; text-decoration:none;
+    background:var(--ink); color:var(--cream); font-weight:600; font-size:.84rem;
+    padding:.62rem 1.05rem; border-radius:999px; transition:transform .2s ease, background .2s ease;
+  }
+  .nav-wa:hover{ background:var(--brass-deep); transform:translateY(-1px); }
+  .nav-toggle{ display:none; background:none; border:1px solid var(--line); border-radius:10px; width:44px; height:40px; cursor:pointer; align-items:center; justify-content:center; }
+  .nav-toggle svg{ width:20px; height:20px; stroke:var(--ink); }
+  @media (max-width:860px){
+    .nav-links{ display:none; }
+    .nav-toggle{ display:inline-flex; }
+    .nav.open .nav-links{
+      display:flex; position:absolute; left:0; right:0; top:100%; flex-direction:column; align-items:flex-start;
+      gap:0; padding:.5rem 4vw 1.1rem; background:var(--paper); border-bottom:1px solid var(--line);
+    }
+    .nav.open .nav-links li{ width:100%; }
+    .nav.open .nav-links a{ display:block; width:100%; padding:.85rem 0; border-bottom:1px solid var(--line); }
+    .nav.open .nav-links a::after{ display:none; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{ padding: clamp(40px,7vw,86px) 0 clamp(56px,8vw,96px); }
+  .hero-grid{ display:grid; grid-template-columns: 1.05fr .95fr; gap:clamp(28px,4vw,68px); align-items:center; }
+  @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; } }
+  .hero-word{
+    font-size:clamp(3.6rem, 12vw, 8.2rem); font-weight:500; line-height:.92; letter-spacing:-.025em;
+    font-optical-sizing:auto;
+  }
+  .hero-word em{ font-style:italic; font-weight:400; color:var(--brass-deep); }
+  .hero-sub{ display:flex; align-items:center; gap:.9rem; margin:1.1rem 0 1.6rem; }
+  .hero-sub .line{ height:1.5px; width:clamp(38px,7vw,74px); background:var(--brass); }
+  .hero-sub span{ font-size:.82rem; letter-spacing:.26em; text-transform:uppercase; font-weight:700; color:var(--ink-soft); }
+  .hero-tag{ font-family:"Fraunces"; font-size:clamp(1.35rem,1rem + 2vw,2.05rem); line-height:1.24; font-weight:400; max-width:20ch; margin-bottom:1.5rem; }
+  .hero-tag .soft{ color:var(--ink-soft); }
+  .hero-cta{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:.4rem; }
+
+  .btn{ display:inline-flex; align-items:center; gap:.55rem; font-weight:600; font-size:.92rem; text-decoration:none; cursor:pointer; border:none; border-radius:999px; padding:.85rem 1.5rem; transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease; }
+  .btn-primary{ background:var(--ink); color:var(--cream); box-shadow:var(--shadow-sm); }
+  .btn-primary:hover{ background:var(--brass-deep); transform:translateY(-2px); }
+  .btn-ghost{ background:transparent; color:var(--ink); border:1.5px solid var(--ink); }
+  .btn-ghost:hover{ background:var(--ink); color:var(--cream); transform:translateY(-2px); }
+  .btn-wa{ background:#1f7a4d; color:#fff; }
+  .btn-wa:hover{ background:#1a6741; transform:translateY(-2px); }
+  .btn svg{ width:18px; height:18px; }
+
+  .hero-figure{ position:relative; }
+  .placeholder{
+    position:relative; border-radius:16px; overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 70% 0%, #FBF3E6 0%, var(--paper-2) 60%, #E0D3BB 100%);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .placeholder::after{
+    content:""; position:absolute; inset:10px; border:1px solid color-mix(in srgb, var(--brass) 55%, transparent); border-radius:10px; pointer-events:none;
+  }
+  .ph-mark{ position:absolute; z-index:2; bottom:12px; left:12px; font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--brass-deep); background:color-mix(in srgb, var(--cream) 82%, transparent); padding:.34rem .6rem; border-radius:999px; border:1px solid var(--line); }
+  .hero-figure .placeholder{ aspect-ratio:4/5; }
+  .ph-art{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+  .ph-art svg{ width:46%; height:auto; opacity:.62; }
+  .hero-badge{
+    position:absolute; z-index:3; right:-10px; bottom:26px; background:var(--cream); border:1px solid var(--line);
+    border-radius:14px; padding:.8rem 1rem; box-shadow:var(--shadow-sm); max-width:190px;
+  }
+  @media (max-width:900px){ .hero-badge{ right:8px; } }
+  .hero-badge b{ font-family:"Fraunces"; font-size:1.5rem; display:block; line-height:1; color:var(--brass-deep); }
+  .hero-badge span{ font-size:.76rem; color:var(--ink-soft); }
+
+  /* ---------- intro strip ---------- */
+  .intro{ background:var(--cream); border-block:1px solid var(--line); }
+  .intro .wrap{ display:grid; grid-template-columns:auto 1fr; gap:clamp(24px,5vw,72px); align-items:center; }
+  @media (max-width:760px){ .intro .wrap{ grid-template-columns:1fr; gap:20px; } }
+  .intro h2{ font-size:clamp(1.7rem,1.2rem + 2vw,2.5rem); max-width:14ch; }
+  .intro p{ margin:0; color:var(--ink-soft); font-size:1.06rem; max-width:52ch; }
+
+  /* ---------- section heading ---------- */
+  .sec-head{ margin-bottom:clamp(30px,4vw,52px); max-width:60ch; }
+  .sec-head h2{ font-size:clamp(2rem,1.4rem + 2.6vw,3rem); }
+  .sec-head p{ color:var(--ink-soft); margin:.9rem 0 0; }
+
+  /* ---------- collection grid ---------- */
+  .collection-top{ display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:clamp(28px,4vw,48px); }
+  .grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:clamp(18px,2.4vw,34px); }
+  @media (max-width:900px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px){ .grid{ grid-template-columns:1fr; gap:26px; } }
+  .card{ display:flex; flex-direction:column; }
+  .card-media{ position:relative; aspect-ratio:4/5; border-radius:14px; overflow:hidden; background:var(--paper-2); border:1px solid var(--line); }
+  .card-media img{ width:100%; height:100%; object-fit:cover; }
+  .card-media .placeholder{ position:absolute; inset:0; border-radius:14px; box-shadow:none; }
+  .card-media .ph-art svg{ width:40%; opacity:.5; }
+  .card-tag{ position:absolute; top:10px; left:10px; z-index:3; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--brass-deep); background:color-mix(in srgb,var(--cream) 85%, transparent); padding:.3rem .55rem; border-radius:999px; border:1px solid var(--line); }
+  .card-body{ padding:1rem .15rem 0; display:flex; flex-direction:column; flex:1; }
+  .card-row{ display:flex; justify-content:space-between; align-items:baseline; gap:.8rem; }
+  .card-name{ font-family:"Fraunces"; font-size:1.24rem; font-weight:500; }
+  .card-price{ font-weight:700; font-size:.98rem; white-space:nowrap; color:var(--brass-deep); }
+  .card-desc{ color:var(--ink-soft); font-size:.92rem; margin:.5rem 0 1.1rem; flex:1; }
+  .card-order{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    text-decoration:none; font-weight:600; font-size:.88rem; color:var(--ink);
+    border:1.5px solid var(--ink); border-radius:999px; padding:.6rem 1rem; transition:all .2s ease;
+  }
+  .card-order:hover{ background:#1f7a4d; border-color:#1f7a4d; color:#fff; }
+  .card-order svg{ width:16px; height:16px; }
+  .empty-note{ grid-column:1/-1; text-align:center; color:var(--ink-soft); padding:40px 0; }
+
+  /* ---------- atelier voices strip (home mini testimonials) ---------- */
+  .voices-strip{ background:var(--ink); color:var(--cream); }
+  .voices-strip .eyebrow{ color:#D8B77A; }
+  .voices-strip .eyebrow::before{ background:#D8B77A; }
+  .strip-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,44px); margin-top:22px; }
+  @media (max-width:820px){ .strip-grid{ grid-template-columns:1fr; gap:26px; } }
+  .strip-quote{ border-left:2px solid #D8B77A; padding-left:1.1rem; }
+  .strip-quote p{ font-family:"Fraunces"; font-style:italic; font-size:1.12rem; line-height:1.4; margin:0 0 .7rem; color:#F5ECDD; }
+  .strip-quote cite{ font-style:normal; font-size:.82rem; letter-spacing:.04em; color:#C9B896; font-weight:600; }
+
+  /* ---------- story ---------- */
+  .story-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(30px,5vw,74px); align-items:start; }
+  @media (max-width:880px){ .story-grid{ grid-template-columns:1fr; } }
+  .story-figure .placeholder{ aspect-ratio:3/4; }
+  .story-figure .ph-art svg{ width:42%; }
+  .story-copy p{ margin:0 0 1.15rem; color:var(--ink-soft); }
+  .story-copy p:first-of-type::first-letter{ font-family:"Fraunces"; font-size:3.1rem; line-height:.8; float:left; padding:.08em .12em 0 0; color:var(--brass-deep); font-weight:600; }
+  .values{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:2rem; }
+  @media (max-width:620px){ .values{ grid-template-columns:1fr; gap:16px; } }
+  .value h3{ font-size:1.16rem; margin-bottom:.4rem; display:flex; align-items:center; gap:.55rem; }
+  .value h3 svg{ width:20px; height:20px; stroke:var(--brass-deep); }
+  .value p{ font-size:.9rem; color:var(--ink-soft); margin:0; }
+  .story-stats{ display:flex; gap:clamp(24px,5vw,56px); margin-top:2.2rem; flex-wrap:wrap; }
+  .stat b{ font-family:"Fraunces"; font-size:2.3rem; color:var(--brass-deep); display:block; line-height:1; }
+  .stat span{ font-size:.82rem; color:var(--ink-soft); letter-spacing:.02em; }
+
+  /* ---------- full testimonials ---------- */
+  .t-grid{ columns:2; column-gap:clamp(20px,2.6vw,32px); }
+  @media (max-width:760px){ .t-grid{ columns:1; } }
+  .t-card{ break-inside:avoid; background:var(--cream); border:1px solid var(--line); border-radius:16px; padding:1.5rem 1.5rem 1.35rem; margin-bottom:clamp(20px,2.6vw,32px); box-shadow:var(--shadow-sm); }
+  .t-stars{ color:var(--brass); letter-spacing:.15em; font-size:.8rem; margin-bottom:.7rem; }
+  .t-card blockquote{ margin:0 0 1rem; font-family:"Fraunces"; font-size:1.12rem; line-height:1.45; color:var(--ink); }
+  .t-meta{ display:flex; align-items:center; gap:.7rem; }
+  .t-ava{ width:38px; height:38px; border-radius:50%; background:var(--paper-2); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-family:"Fraunces"; font-weight:600; color:var(--brass-deep); font-size:1rem; }
+  .t-who b{ font-size:.9rem; display:block; }
+  .t-who span{ font-size:.78rem; color:var(--ink-soft); }
+
+  /* ---------- contact ---------- */
+  .contact{ background:var(--cream); border-top:1px solid var(--line); }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,72px); align-items:start; }
+  @media (max-width:820px){ .contact-grid{ grid-template-columns:1fr; } }
+  .contact h2{ font-size:clamp(2rem,1.4rem + 2.4vw,2.8rem); }
+  .contact .lead{ margin:.9rem 0 1.8rem; }
+  .contact-lines{ display:flex; flex-direction:column; gap:1.1rem; margin-bottom:1.8rem; }
+  .cline{ display:flex; align-items:flex-start; gap:.9rem; }
+  .cline .ic{ width:42px; height:42px; flex:none; border-radius:12px; background:var(--paper); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; }
+  .cline .ic svg{ width:20px; height:20px; stroke:var(--brass-deep); }
+  .cline b{ display:block; font-size:.95rem; }
+  .cline a, .cline span{ color:var(--ink-soft); text-decoration:none; font-size:.92rem; }
+  .cline a:hover{ color:var(--brass-deep); }
+
+  .form{ background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:clamp(20px,3vw,30px); box-shadow:var(--shadow-sm); }
+  .form h3{ font-size:1.35rem; margin-bottom:.3rem; }
+  .form .note{ font-size:.84rem; color:var(--ink-soft); margin:0 0 1.2rem; }
+  .field{ margin-bottom:1rem; }
+  .field label{ display:block; font-size:.78rem; font-weight:700; letter-spacing:.04em; margin-bottom:.4rem; color:var(--ink); }
+  .field input, .field textarea{
+    width:100%; font:inherit; font-size:.95rem; color:var(--ink);
+    background:var(--cream); border:1.5px solid var(--line); border-radius:11px; padding:.72rem .85rem; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .field textarea{ resize:vertical; min-height:110px; }
+  .field input:focus, .field textarea:focus{ outline:none; border-color:var(--brass); box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 22%, transparent); }
+  .form .btn-wa{ width:100%; justify-content:center; margin-top:.4rem; }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--ink); color:#D9CDBB; padding:clamp(40px,6vw,64px) 0 calc(28px + env(safe-area-inset-bottom,0px)); }
+  .foot-grid{ display:flex; justify-content:space-between; gap:2rem; flex-wrap:wrap; align-items:flex-start; }
+  .foot-brand .b1{ font-family:"Fraunces"; font-size:1.6rem; color:var(--cream); }
+  .foot-brand .b2{ font-size:.66rem; letter-spacing:.32em; text-transform:uppercase; color:#C9A566; font-weight:700; margin-top:.2rem; }
+  .foot-brand p{ font-size:.88rem; max-width:34ch; margin:.9rem 0 0; color:#B7A98F; }
+  .foot-nav{ display:flex; gap:2.4rem; flex-wrap:wrap; }
+  .foot-col b{ display:block; font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:#C9A566; margin-bottom:.9rem; }
+  .foot-col a, .foot-col button.linklike{ display:block; background:none; border:none; padding:0; text-align:left; cursor:pointer; font:inherit; color:#D9CDBB; text-decoration:none; font-size:.9rem; margin-bottom:.6rem; }
+  .foot-col a:hover, .foot-col button.linklike:hover{ color:var(--cream); }
+  .foot-bottom{ border-top:1px solid rgba(255,255,255,.12); margin-top:2.4rem; padding-top:1.4rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-size:.8rem; color:#9C8F76; }
+
+  /* ---------- floating whatsapp ---------- */
+  .fab{
+    position:fixed; z-index:60; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px));
+    display:inline-flex; align-items:center; gap:.6rem; background:#1f7a4d; color:#fff; text-decoration:none;
+    padding:.85rem 1.15rem; border-radius:999px; font-weight:600; font-size:.9rem;
+    box-shadow:0 14px 30px -12px rgba(31,122,77,.7); transition:transform .2s ease, background .2s ease;
+  }
+  .fab:hover{ transform:translateY(-2px); background:#1a6741; }
+  .fab svg{ width:22px; height:22px; }
+  .fab .fab-txt{ }
+  @media (max-width:520px){ .fab .fab-txt{ display:none; } .fab{ padding:.9rem; } }
+
+  /* ---------- admin drawer ---------- */
+  .overlay{ position:fixed; inset:0; z-index:80; background:rgba(30,22,16,.5); backdrop-filter:blur(2px); opacity:0; visibility:hidden; transition:opacity .25s ease, visibility .25s ease; }
+  .overlay.show{ opacity:1; visibility:visible; }
+  .drawer{
+    position:fixed; z-index:90; top:0; right:0; height:100dvh; width:min(460px, 94vw);
+    background:var(--paper); border-left:1px solid var(--line); box-shadow:-30px 0 60px -30px rgba(0,0,0,.5);
+    transform:translateX(102%); transition:transform .32s cubic-bezier(.4,.0,.2,1);
+    display:flex; flex-direction:column;
+    padding-top:env(safe-area-inset-top,0px);
+  }
+  .drawer.show{ transform:translateX(0); }
+  .drawer-head{ display:flex; align-items:center; justify-content:space-between; padding:1.1rem 1.3rem; border-bottom:1px solid var(--line); flex:none; }
+  .drawer-head h3{ font-size:1.25rem; }
+  .drawer-head .sub{ font-size:.76rem; color:var(--ink-soft); }
+  .x-btn{ background:none; border:1px solid var(--line); border-radius:10px; width:38px; height:38px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .x-btn svg{ width:18px; height:18px; stroke:var(--ink); }
+  .drawer-body{ padding:1.3rem; overflow-y:auto; flex:1; }
+
+  .gate p{ color:var(--ink-soft); font-size:.92rem; margin-top:0; }
+  .adm-tabs{ display:flex; gap:.4rem; margin-bottom:1.2rem; background:var(--paper-2); padding:.3rem; border-radius:12px; }
+  .adm-tabs button{ flex:1; font:inherit; font-weight:600; font-size:.82rem; border:none; background:transparent; padding:.55rem; border-radius:9px; cursor:pointer; color:var(--ink-soft); }
+  .adm-tabs button.on{ background:var(--cream); color:var(--ink); box-shadow:var(--shadow-sm); }
+
+  .dropzone{ border:1.5px dashed var(--line); border-radius:14px; padding:1.2rem; text-align:center; cursor:pointer; background:var(--cream); transition:border-color .2s ease, background .2s ease; }
+  .dropzone:hover, .dropzone.drag{ border-color:var(--brass); background:#FBF3E6; }
+  .dropzone svg{ width:30px; height:30px; stroke:var(--brass-deep); margin-bottom:.4rem; }
+  .dropzone span{ display:block; font-size:.86rem; color:var(--ink-soft); }
+  .dropzone .prev{ width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:10px; margin-bottom:.6rem; display:none; }
+
+  .adm-list{ display:flex; flex-direction:column; gap:.7rem; }
+  .adm-item{ display:flex; gap:.8rem; align-items:center; background:var(--cream); border:1px solid var(--line); border-radius:12px; padding:.6rem; }
+  .adm-item .thumb{ width:52px; height:64px; border-radius:8px; object-fit:cover; background:var(--paper-2); flex:none; border:1px solid var(--line); }
+  .adm-item .info{ flex:1; min-width:0; }
+  .adm-item .info b{ font-size:.9rem; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .adm-item .info span{ font-size:.8rem; color:var(--brass-deep); font-weight:700; }
+  .adm-item .acts{ display:flex; gap:.3rem; }
+  .icon-btn{ background:var(--paper); border:1px solid var(--line); border-radius:8px; width:34px; height:34px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .icon-btn svg{ width:16px; height:16px; stroke:var(--ink); }
+  .icon-btn.danger:hover{ background:#f6e3dd; border-color:var(--clay); }
+  .icon-btn.danger:hover svg{ stroke:var(--clay); }
+
+  .adm-actions{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.3rem; }
+  .mini-btn{ font:inherit; font-weight:600; font-size:.82rem; padding:.6rem .9rem; border-radius:10px; cursor:pointer; border:1.5px solid var(--line); background:var(--cream); color:var(--ink); display:inline-flex; align-items:center; gap:.4rem; }
+  .mini-btn.solid{ background:var(--ink); color:var(--cream); border-color:var(--ink); }
+  .mini-btn.solid:hover{ background:var(--brass-deep); border-color:var(--brass-deep); }
+  .mini-btn svg{ width:15px; height:15px; }
+  .field-sm label{ font-size:.74rem; }
+  .field-sm input, .field-sm textarea{ padding:.6rem .7rem; font-size:.9rem; }
+  .helper{ font-size:.78rem; color:var(--ink-soft); background:var(--paper-2); border-radius:10px; padding:.8rem .9rem; margin-top:1rem; line-height:1.5; }
+  .toast{ position:fixed; z-index:120; left:50%; bottom:26px; transform:translate(-50%,20px); background:var(--ink); color:var(--cream); padding:.8rem 1.2rem; border-radius:999px; font-size:.86rem; font-weight:600; opacity:0; visibility:hidden; transition:all .25s ease; box-shadow:var(--shadow); }
+  .toast.show{ opacity:1; visibility:visible; transform:translate(-50%,0); }
+
+  /* one orchestrated hero reveal */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{ opacity:0; transform:translateY(14px); }
+    .reveal.in{ opacity:1; transform:none; transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+    .r1{ transition-delay:.05s; } .r2{ transition-delay:.16s; } .r3{ transition-delay:.27s; } .r4{ transition-delay:.38s; }
+  }
+
+  /* ---------- dark theme (kept warm, brand-cohesive) ---------- */
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#211913; --paper-2:#2C2219; --cream:#2A211A; --ink:#F2E9DA; --ink-soft:#B8A98F;
+      --line:#3E3227; --brass:#C99A55; --brass-deep:#D8B77A; --clay:#C87A5C;
+    }
+    :root:not([data-theme="light"]) body{ background:var(--paper); }
+    :root:not([data-theme="light"]) .btn-ghost{ border-color:var(--ink); }
+    :root:not([data-theme="light"]) .intro, :root:not([data-theme="light"]) .contact{ background:var(--cream); }
+    :root:not([data-theme="light"]) .voices-strip{ background:#171009; }
+    :root:not([data-theme="light"]) footer{ background:#171009; }
+  }
+  :root[data-theme="dark"]{
+    --paper:#211913; --paper-2:#2C2219; --cream:#2A211A; --ink:#F2E9DA; --ink-soft:#B8A98F;
+    --line:#3E3227; --brass:#C99A55; --brass-deep:#D8B77A; --clay:#C87A5C;
+  }
+  :root[data-theme="dark"] body{ background:var(--paper); }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brandmark" href="#top" aria-label="Salia Atelier home">
+      <span class="b1">Salia</span><span class="b2">Atelier</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#voices">Voices</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-wa" href="https://wa.me/254707436816" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.06c-.24.68-1.42 1.32-1.95 1.36-.5.05-1.13.27-3.68-.77-3.1-1.28-5.08-4.44-5.24-4.65-.15-.2-1.25-1.66-1.25-3.17 0-1.51.79-2.25 1.07-2.56.27-.3.6-.38.8-.38l.57.01c.18.01.43-.07.67.51.24.58.83 2.02.9 2.17.07.15.12.32.02.51-.44.9-.9.86-.54 1.48.98 1.68 1.96 2.26 3.45 3.01.25.13.4.11.55-.06.15-.18.63-.74.8-1 .16-.24.33-.2.55-.12.22.08 1.42.67 1.66.79.24.12.4.18.46.28.06.11.06.63-.18 1.31Z"/></svg>
+          Order on WhatsApp</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="hero-word reveal r1"><em>Salia</em><br>Atelier</h1>
+        <div class="hero-sub reveal r2"><span class="line"></span><span>Kiserian · Kenya · Est. 2026</span></div>
+        <p class="hero-tag reveal r2">Considered clothing, <span class="soft">lovingly made close to home.</span></p>
+        <div class="hero-cta reveal r3">
+          <a class="btn btn-primary" href="#collection">Explore the collection
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#story">Our story</a>
+        </div>
+      </div>
+      <div class="hero-figure reveal r4">
+        <div class="placeholder">
+          <div class="ph-art">
+            <svg viewBox="0 0 120 150" fill="none" stroke="#A97E43" stroke-width="2" aria-hidden="true">
+              <path d="M40 30c0 8 8 12 20 12s20-4 20-12"/>
+              <path d="M42 30 18 46l8 14 12-6v66h44V68l12 6 8-14-24-16"/>
+              <circle cx="60" cy="20" r="8"/>
+            </svg>
+          </div>
+          <span class="ph-mark">Placeholder · your atelier photo</span>
+        </div>
+        <div class="hero-badge">
+          <b>15+</b>
+          <span>garments lovingly delivered to happy clients</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTRO ============ -->
+  <section class="intro section">
+    <div class="wrap">
+      <h2>A small atelier with a big heart.</h2>
+      <p>Salia Atelier is a boutique fashion house in Kiserian, Kajiado County — where a handful of thoughtfully chosen, quality pieces beat a rack full of the ordinary. Every garment is picked, checked and finished by hand, then delivered to you personally. Approachable luxury, made close to home.</p>
+    </div>
+  </section>
+
+  <!-- ============ COLLECTION ============ -->
+  <section class="section" id="collection">
+    <div class="wrap">
+      <div class="collection-top">
+        <div class="sec-head" style="margin-bottom:0">
+          <p class="eyebrow">The Collection</p>
+          <h2>Pieces in the atelier now</h2>
+          <p>A rotating selection of what we have in stock. Found something you love? Tap <em>Order via WhatsApp</em> and we'll take it from there — sizing, payment and delivery, all over one friendly chat.</p>
+        </div>
+      </div>
+      <div class="grid" id="collectionGrid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ============ HOME VOICES STRIP ============ -->
+  <section class="voices-strip section">
+    <div class="wrap">
+      <p class="eyebrow">As heard in our atelier</p>
+      <div class="strip-grid">
+        <div class="strip-quote">
+          <p>"The wrap dress fit like it was cut for me. I've never felt more myself."</p>
+          <cite>— Wanjiku M., Nairobi</cite>
+        </div>
+        <div class="strip-quote">
+          <p>"Ordered on WhatsApp in the morning, wore it to church that Sunday. Seamless."</p>
+          <cite>— Achieng O., Kisumu</cite>
+        </div>
+        <div class="strip-quote">
+          <p>"You can feel the care in the stitching. This is real quality, honestly."</p>
+          <cite>— Naserian S., Kiserian</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section class="section" id="story">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our Story</p>
+        <h2>Started small. Growing, one happy client at a time.</h2>
+      </div>
+      <div class="story-grid">
+        <div class="story-figure">
+          <div class="placeholder">
+            <div class="ph-art">
+              <svg viewBox="0 0 120 150" fill="none" stroke="#A97E43" stroke-width="2" aria-hidden="true">
+                <rect x="30" y="30" width="60" height="90" rx="6"/>
+                <path d="M45 30v-6a15 15 0 0 1 30 0v6M45 55h30M45 72h30M45 89h20"/>
+              </svg>
+            </div>
+            <span class="ph-mark">Placeholder · founder / atelier</span>
+          </div>
+        </div>
+        <div class="story-copy">
+          <p>Salia Atelier began in 2026 with a sewing table, a good eye, and one quiet belief: that a woman in Kiserian deserves clothing made with the same care as anywhere in the world. We started with a small circle of friends and neighbours — a dress here, a tailored blazer there — and a promise to never hand over a piece we wouldn't be proud to wear ourselves.</p>
+          <p>Word travelled the way good things do here: gently, from one satisfied client to the next. What was a side table soon became a proper little atelier, filled with fabric we'd chosen by hand and pieces we'd finished late into the evening. We stayed small on purpose — because staying small is how we keep knowing your name, your size, and the way you like your hems.</p>
+          <p>Today we're still a young, growing house, and proud of it. Every garment that leaves our door carries a bit of that first table with it: made with patience, delivered in person, and worn, we hope, with a little more confidence than before. This is only the beginning — and we're so glad you're here for it.</p>
+
+          <div class="story-stats">
+            <div class="stat"><b>15+</b><span>garments delivered</span></div>
+            <div class="stat"><b>2026</b><span>founded in Kiserian</span></div>
+            <div class="stat"><b>1:1</b><span>personal service, always</span></div>
+          </div>
+
+          <div class="values">
+            <div class="value">
+              <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21.5 7.6 18.7l.9-5.5-4-3.9L10 8z"/></svg>Craftsmanship</h3>
+              <p>Chosen fabrics, checked seams, finished by hand. We stand behind every stitch.</p>
+            </div>
+            <div class="value">
+              <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>Authenticity</h3>
+              <p>Honest pieces, honest pricing, honest promises. No overselling — just good clothes.</p>
+            </div>
+            <div class="value">
+              <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 8v6M22 11h-6"/></svg>Personal service</h3>
+              <p>One friendly chat from choosing to doorstep. We look after you, not just your order.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section" id="voices" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Voices</p>
+        <h2>In their own words</h2>
+        <p>Real warmth from real clients — on fit, on delivery, and on how it felt to wear a Salia piece.</p>
+      </div>
+      <div class="t-grid" id="testimonials"></div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let's find your next favourite piece.</h2>
+        <p class="lead">WhatsApp is the quickest way to reach us — it's how we take every order, answer every sizing question, and arrange delivery. Message any time; we reply as soon as we're off the sewing table.</p>
+        <div class="contact-lines">
+          <div class="cline">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg></span>
+            <div><b>WhatsApp — our order line</b><a href="https://wa.me/254707436816" target="_blank" rel="noopener">+254 707 436 816</a></div>
+          </div>
+          <div class="cline">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <div><b>Find us</b><span>Kiserian, Kajiado County, Kenya</span></div>
+          </div>
+          <div class="cline">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><b>Atelier hours</b><span>Mon – Sat · 9:00 – 18:00 (EAT)</span></div>
+          </div>
+        </div>
+        <a class="btn btn-wa" href="https://wa.me/254707436816" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.06c-.24.68-1.42 1.32-1.95 1.36-.5.05-1.13.27-3.68-.77-3.1-1.28-5.08-4.44-5.24-4.65-.15-.2-1.25-1.66-1.25-3.17 0-1.51.79-2.25 1.07-2.56.27-.3.6-.38.8-.38l.57.01c.18.01.43-.07.67.51.24.58.83 2.02.9 2.17.07.15.12.32.02.51-.44.9-.9.86-.54 1.48.98 1.68 1.96 2.26 3.45 3.01.25.13.4.11.55-.06.15-.18.63-.74.8-1 .16-.24.33-.2.55-.12.22.08 1.42.67 1.66.79.24.12.4.18.46.28.06.11.06.63-.18 1.31Z"/></svg>
+          Chat with us now</a>
+      </div>
+
+      <div class="form">
+        <h3>Send a message</h3>
+        <p class="note">A backup to WhatsApp. Fill this in and we'll open WhatsApp with your note ready to send.</p>
+        <div class="field field-sm">
+          <label for="cf-name">Your name</label>
+          <input id="cf-name" type="text" placeholder="e.g. Amina Kimani" autocomplete="name">
+        </div>
+        <div class="field field-sm">
+          <label for="cf-item">Piece you're interested in <span style="font-weight:400;color:var(--ink-soft)">(optional)</span></label>
+          <input id="cf-item" type="text" placeholder="e.g. The Kiserian Wrap Dress">
+        </div>
+        <div class="field field-sm">
+          <label for="cf-msg">Your message</label>
+          <textarea id="cf-msg" placeholder="Tell us what you're looking for, your size, or any question…"></textarea>
+        </div>
+        <button class="btn btn-wa" id="cfSend" type="button">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg>
+          Send via WhatsApp</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="b1">Salia Atelier</div>
+        <div class="b2">Kiserian · Kenya</div>
+        <p>Considered clothing, lovingly made and personally delivered. Est. 2026.</p>
+      </div>
+      <div class="foot-nav">
+        <div class="foot-col">
+          <b>Explore</b>
+          <a href="#collection">Collection</a>
+          <a href="#story">Our story</a>
+          <a href="#voices">Voices</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="foot-col">
+          <b>Order</b>
+          <a href="https://wa.me/254707436816" target="_blank" rel="noopener">WhatsApp us</a>
+          <span style="display:block;color:#B7A98F;font-size:.9rem;margin-bottom:.6rem">+254 707 436 816</span>
+        </div>
+        <div class="foot-col">
+          <b>Atelier</b>
+          <button class="linklike" id="adminOpen">Owner sign-in</button>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Salia Atelier. Made with care in Kiserian.</span>
+      <span>Approachable luxury.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- floating whatsapp -->
+<a class="fab" href="https://wa.me/254707436816" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.06c-.24.68-1.42 1.32-1.95 1.36-.5.05-1.13.27-3.68-.77-3.1-1.28-5.08-4.44-5.24-4.65-.15-.2-1.25-1.66-1.25-3.17 0-1.51.79-2.25 1.07-2.56.27-.3.6-.38.8-.38l.57.01c.18.01.43-.07.67.51.24.58.83 2.02.9 2.17.07.15.12.32.02.51-.44.9-.9.86-.54 1.48.98 1.68 1.96 2.26 3.45 3.01.25.13.4.11.55-.06.15-.18.63-.74.8-1 .16-.24.33-.2.55-.12.22.08 1.42.67 1.66.79.24.12.4.18.46.28.06.11.06.63-.18 1.31Z"/></svg>
+  <span class="fab-txt">Order on WhatsApp</span>
+</a>
+
+<!-- ============ ADMIN ============ -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Atelier admin" aria-hidden="true">
+  <div class="drawer-head">
+    <div>
+      <h3 id="drawerTitle">Owner sign-in</h3>
+      <div class="sub" id="drawerSub">Manage your collection</div>
+    </div>
+    <button class="x-btn" id="drawerClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+  var WA = "254707436816";
+  var LS_CAT = "salia.catalog.v1";
+  var LS_PIN = "salia.pin.v1";
+  var DEFAULT_PIN = "salia2026";
+
+  function waLink(msg){ return "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); }
+  function money(v){ // v is a number of KES
+    var n = Math.round(Number(v)||0);
+    return "KES " + n.toLocaleString("en-KE");
+  }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];}); }
+  function uid(){ return "it_" + Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+
+  // ---- placeholder art (returned as inline svg markup) ----
+  function phSvg(){
+    return '<div class="placeholder"><div class="ph-art">'+
+      '<svg viewBox="0 0 120 150" fill="none" stroke="#A97E43" stroke-width="2" aria-hidden="true">'+
+      '<path d="M40 30c0 8 8 12 20 12s20-4 20-12"/>'+
+      '<path d="M42 30 18 46l8 14 12-6v66h44V68l12 6 8-14-24-16"/>'+
+      '<circle cx="60" cy="20" r="8"/></svg></div>'+
+      '<span class="ph-mark">Placeholder</span></div>';
+  }
+
+  // ---- sample catalog (shown until the owner adds their own) ----
+  var SAMPLE = [
+    { id:"s1", name:"The Kiserian Wrap Dress",  price:4500, img:null,
+      desc:"Our signature wrap in soft, breathable cotton — flattering on every shape, tie-adjustable, and endlessly easy to wear." },
+    { id:"s2", name:"Naserian Linen Shirt",     price:2800, img:null,
+      desc:"A relaxed, everyday linen shirt with a gentle drape. Named for a friend who wore the very first one." },
+    { id:"s3", name:"Ngong Hills Trench",       price:6200, img:null,
+      desc:"A lightweight trench for cool Kiserian mornings — clean lines, a considered collar, quietly elegant." },
+    { id:"s4", name:"Amani Two-Piece Set",      price:5400, img:null,
+      desc:"Coordinated top and trousers you can wear together or apart. Comfortable enough for a full, busy day." },
+    { id:"s5", name:"Tumaini Maxi Skirt",       price:3600, img:null,
+      desc:"A flowing maxi that moves beautifully. Deep pockets, a smooth waistband, and just the right weight." },
+    { id:"s6", name:"Baraka Tailored Blazer",   price:5900, img:null,
+      desc:"A structured blazer finished by hand — the piece that turns an ordinary outfit into an occasion." }
+  ];
+
+  // ---- testimonials ----
+  var TESTI = [
+    { n:"Wanjiku Mwangi", city:"Nairobi", g:"The Kiserian Wrap Dress",
+      q:"I ordered the Kiserian Wrap Dress for my sister's introduction and honestly I've never had something fit so well straight out of the bag. No tailor needed. I felt elegant the whole day and three people asked me where it was from." },
+    { n:"Achieng Otieno", city:"Kisumu", g:"Amani Two-Piece Set",
+      q:"The Amani set is now my go-to for work. It arrived within two days, wrapped so neatly it felt like a gift to myself. The trousers are comfortable enough that I forget I'm dressed up." },
+    { n:"Naserian Sankale", city:"Kiserian", g:"Baraka Tailored Blazer",
+      q:"You can tell someone actually cared about the stitching. The Baraka blazer sits perfectly on my shoulders — I wore it to a pitch and felt unstoppable. Supporting a local atelier that does work this good makes me proud." },
+    { n:"Cheruiyot Kiprop", city:"Eldoret", g:"Ngong Hills Trench",
+      q:"Bought the Ngong Hills Trench for my wife and she hasn't taken it off since. The whole thing happened over WhatsApp in one evening — easy, warm, no stress. It's rare to be looked after like that." },
+    { n:"Njeri Kamau", city:"Thika", g:"Tumaini Maxi Skirt",
+      q:"The Tumaini skirt is the most comfortable thing I own and it has POCKETS. It came exactly when they said it would. I've already sent two friends their way — this is how a small business should feel." },
+    { n:"Amina Hassan", city:"Mombasa", g:"Naserian Linen Shirt",
+      q:"The linen shirt is perfect for the coast heat — light, soft, and it breathes. What stayed with me was the personal follow-up message a week later just to check the fit was right. Who does that anymore?" }
+  ];
+
+  // ---- state ----
+  function loadCatalog(){
+    try{
+      var raw = localStorage.getItem(LS_CAT);
+      if(!raw) return null;
+      var arr = JSON.parse(raw);
+      if(Array.isArray(arr) && arr.length) return arr;
+      return null;
+    }catch(e){ return null; }
+  }
+  function saveCatalog(arr){
+    try{ localStorage.setItem(LS_CAT, JSON.stringify(arr)); return true; }
+    catch(e){ toast("Couldn't save — your photos may be too large. Try fewer or smaller images."); return false; }
+  }
+  function getCatalog(){ return loadCatalog() || SAMPLE; }
+  function isOwnerCatalog(){ return !!loadCatalog(); }
+
+  // ---- render collection ----
+  function renderCollection(){
+    var grid = document.getElementById("collectionGrid");
+    var items = getCatalog();
+    if(!items.length){
+      grid.innerHTML = '<p class="empty-note">The atelier is between collections just now — message us on WhatsApp and we\'ll show you what\'s coming.</p>';
+      return;
+    }
+    grid.innerHTML = items.map(function(it){
+      var media = it.img
+        ? '<img src="'+esc(it.img)+'" alt="'+esc(it.name)+'" loading="lazy">'
+        : phSvg();
+      var tag = it.img ? "" : '<span class="card-tag">Photo coming soon</span>';
+      var msg = 'Hello Salia Atelier! I would love to order the "'+it.name+'" ('+money(it.price)+'). Is it available?';
+      return ''+
+      '<article class="card">'+
+        '<div class="card-media">'+ tag + media +'</div>'+
+        '<div class="card-body">'+
+          '<div class="card-row"><h3 class="card-name">'+esc(it.name)+'</h3>'+
+          '<span class="card-price">'+money(it.price)+'</span></div>'+
+          '<p class="card-desc">'+esc(it.desc)+'</p>'+
+          '<a class="card-order" href="'+waLink(msg)+'" target="_blank" rel="noopener">'+
+            '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg>'+
+            'Order via WhatsApp</a>'+
+        '</div>'+
+      '</article>';
+    }).join("");
+  }
+
+  // ---- render testimonials ----
+  function renderTesti(){
+    var wrap = document.getElementById("testimonials");
+    wrap.innerHTML = TESTI.map(function(t){
+      var initials = t.n.split(" ").map(function(w){return w[0];}).slice(0,2).join("");
+      return ''+
+      '<div class="t-card">'+
+        '<div class="t-stars">★★★★★</div>'+
+        '<blockquote>"'+esc(t.q)+'"</blockquote>'+
+        '<div class="t-meta"><div class="t-ava">'+esc(initials)+'</div>'+
+          '<div class="t-who"><b>'+esc(t.n)+'</b><span>'+esc(t.city)+' · '+esc(t.g)+'</span></div>'+
+        '</div>'+
+      '</div>';
+    }).join("");
+  }
+
+  // ---- toast ----
+  var toastTimer;
+  function toast(msg){
+    var el = document.getElementById("toast");
+    el.textContent = msg; el.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ el.classList.remove("show"); }, 2600);
+  }
+
+  // ---- image compression ----
+  function compress(file, maxDim, quality){
+    maxDim = maxDim||1000; quality = quality||0.82;
+    return new Promise(function(resolve, reject){
+      if(!file || !/^image\//.test(file.type)){ reject(new Error("Not an image")); return; }
+      var img = new Image();
+      var url = URL.createObjectURL(file);
+      img.onload = function(){
+        var w = img.width, h = img.height;
+        if(w > h && w > maxDim){ h = Math.round(h*maxDim/w); w = maxDim; }
+        else if(h > maxDim){ w = Math.round(w*maxDim/h); h = maxDim; }
+        var c = document.createElement("canvas"); c.width = w; c.height = h;
+        c.getContext("2d").drawImage(img, 0, 0, w, h);
+        URL.revokeObjectURL(url);
+        try{ resolve(c.toDataURL("image/jpeg", quality)); }
+        catch(e){ reject(e); }
+      };
+      img.onerror = function(){ URL.revokeObjectURL(url); reject(new Error("Load failed")); };
+      img.src = url;
+    });
+  }
+
+  // ================= ADMIN =================
+  var overlay = document.getElementById("overlay");
+  var drawer = document.getElementById("drawer");
+  var body = document.getElementById("drawerBody");
+  var titleEl = document.getElementById("drawerTitle");
+  var subEl = document.getElementById("drawerSub");
+  var authed = false;
+  var editImg = null;      // base64 of currently-staged image
+  var editingId = null;    // id being edited (or null for new)
+
+  function getPin(){ try{ return localStorage.getItem(LS_PIN) || DEFAULT_PIN; }catch(e){ return DEFAULT_PIN; } }
+
+  function openDrawer(){
+    overlay.classList.add("show"); drawer.classList.add("show");
+    drawer.setAttribute("aria-hidden","false");
+    if(authed) renderPanel(); else renderGate();
+  }
+  function closeDrawer(){
+    overlay.classList.remove("show"); drawer.classList.remove("show");
+    drawer.setAttribute("aria-hidden","true");
+  }
+
+  function renderGate(){
+    titleEl.textContent = "Owner sign-in";
+    subEl.textContent = "For the atelier owner only";
+    body.innerHTML =
+      '<div class="gate">'+
+      '<p>Welcome back. Enter your owner PIN to manage your collection — add new pieces, upload photos, and set prices.</p>'+
+      '<div class="field field-sm"><label for="pinInput">Owner PIN</label>'+
+      '<input id="pinInput" type="password" inputmode="numeric" placeholder="••••••••" autocomplete="off"></div>'+
+      '<button class="mini-btn solid" id="pinGo" style="width:100%;justify-content:center">Unlock the atelier</button>'+
+      '<p class="helper">First time here? Your starter PIN is <b>'+esc(DEFAULT_PIN)+'</b>. You can change it once inside. This is a light lock to keep customers out of your admin — not bank-grade security.</p>'+
+      '</div>';
+    var input = document.getElementById("pinInput");
+    function tryPin(){
+      if(input.value === getPin()){ authed = true; renderPanel(); }
+      else { toast("That PIN doesn't match. Try again."); input.value=""; input.focus(); }
+    }
+    document.getElementById("pinGo").onclick = tryPin;
+    input.addEventListener("keydown", function(e){ if(e.key==="Enter") tryPin(); });
+    setTimeout(function(){ input.focus(); }, 350);
+  }
+
+  function renderPanel(){
+    titleEl.textContent = "Your atelier";
+    subEl.textContent = "Add, edit and manage your pieces";
+    editingId = null; editImg = null;
+    var usingSamples = !isOwnerCatalog();
+    body.innerHTML =
+      '<div class="adm-tabs"><button class="on" data-tab="add">Add / edit</button>'+
+      '<button data-tab="manage">My pieces</button>'+
+      '<button data-tab="tools">Backup</button></div>'+
+      '<div id="tabAdd"></div><div id="tabManage" style="display:none"></div><div id="tabTools" style="display:none"></div>';
+
+    var tabs = body.querySelectorAll(".adm-tabs button");
+    tabs.forEach(function(b){
+      b.onclick = function(){
+        tabs.forEach(function(x){ x.classList.remove("on"); });
+        b.classList.add("on");
+        document.getElementById("tabAdd").style.display = b.dataset.tab==="add"?"":"none";
+        document.getElementById("tabManage").style.display = b.dataset.tab==="manage"?"":"none";
+        document.getElementById("tabTools").style.display = b.dataset.tab==="tools"?"":"none";
+      };
+    });
+
+    renderAddForm(usingSamples);
+    renderManage();
+    renderTools();
+  }
+
+  function renderAddForm(usingSamples){
+    var host = document.getElementById("tabAdd");
+    host.innerHTML =
+      (usingSamples ? '<p class="helper" style="margin-top:0">You\'re currently showing our <b>sample pieces</b> so the shop never looks empty. The moment you add your first real piece below, the samples step aside and your collection goes live.</p>' : '')+
+      '<div class="dropzone" id="dz"><img class="prev" id="dzPrev" alt="">'+
+      '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>'+
+      '<span id="dzText">Tap to add a photo of the garment<br><small style="opacity:.7">JPG or PNG — we\'ll tidy the size for you</small></span></div>'+
+      '<input type="file" id="fileInput" accept="image/*" style="display:none">'+
+      '<div class="field field-sm" style="margin-top:1rem"><label for="fName">Piece name</label>'+
+      '<input id="fName" type="text" placeholder="e.g. The Kiserian Wrap Dress"></div>'+
+      '<div class="field field-sm"><label for="fPrice">Price (KES)</label>'+
+      '<input id="fPrice" type="number" min="0" step="50" placeholder="e.g. 4500"></div>'+
+      '<div class="field field-sm"><label for="fDesc">Short description</label>'+
+      '<textarea id="fDesc" placeholder="Fabric, fit, what makes it lovely…"></textarea></div>'+
+      '<div class="adm-actions"><button class="mini-btn solid" id="saveItem">'+
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12l4 4L19 6"/></svg>'+
+      '<span id="saveLabel">Add to collection</span></button>'+
+      '<button class="mini-btn" id="clearItem">Clear</button></div>';
+
+    var dz = document.getElementById("dz");
+    var fileInput = document.getElementById("fileInput");
+    var prev = document.getElementById("dzPrev");
+    var dzText = document.getElementById("dzText");
+
+    dz.onclick = function(){ fileInput.click(); };
+    dz.addEventListener("dragover", function(e){ e.preventDefault(); dz.classList.add("drag"); });
+    dz.addEventListener("dragleave", function(){ dz.classList.remove("drag"); });
+    dz.addEventListener("drop", function(e){ e.preventDefault(); dz.classList.remove("drag"); if(e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]); });
+    fileInput.onchange = function(){ if(fileInput.files[0]) handleFile(fileInput.files[0]); };
+
+    function handleFile(file){
+      dzText.textContent = "Preparing your photo…";
+      compress(file).then(function(data){
+        editImg = data;
+        prev.src = data; prev.style.display = "block";
+        dzText.innerHTML = "Looks lovely — tap to change";
+      }).catch(function(){ toast("Couldn't read that image. Try another photo."); dzText.textContent="Tap to add a photo of the garment"; });
+    }
+
+    document.getElementById("saveItem").onclick = saveItem;
+    document.getElementById("clearItem").onclick = function(){ resetForm(); };
+
+    function resetForm(){
+      editingId = null; editImg = null;
+      document.getElementById("fName").value = "";
+      document.getElementById("fPrice").value = "";
+      document.getElementById("fDesc").value = "";
+      prev.style.display = "none"; prev.src = "";
+      dzText.innerHTML = 'Tap to add a photo of the garment<br><small style="opacity:.7">JPG or PNG — we\'ll tidy the size for you</small>';
+      document.getElementById("saveLabel").textContent = "Add to collection";
+    }
+
+    function saveItem(){
+      var name = document.getElementById("fName").value.trim();
+      var price = document.getElementById("fPrice").value;
+      var desc = document.getElementById("fDesc").value.trim();
+      if(!name){ toast("Please give the piece a name."); return; }
+      if(price==="" || Number(price)<0){ toast("Please add a price."); return; }
+
+      var cat = loadCatalog() || [];  // start empty if still on samples
+      if(editingId){
+        for(var i=0;i<cat.length;i++){ if(cat[i].id===editingId){
+          cat[i].name=name; cat[i].price=Number(price); cat[i].desc=desc;
+          if(editImg!==null) cat[i].img = editImg;
+          break;
+        }}
+      } else {
+        cat.unshift({ id:uid(), name:name, price:Number(price), desc:desc, img:editImg });
+      }
+      if(saveCatalog(cat)){
+        renderCollection();
+        toast(editingId ? "Piece updated." : "Added to your collection.");
+        resetForm();
+        renderManage();
+        // refresh the samples helper state
+        var h = document.querySelector("#tabAdd .helper"); if(h) h.remove();
+      }
+    }
+
+    // expose editor for manage tab
+    renderAddForm._loadEdit = function(item){
+      editingId = item.id; editImg = null;
+      document.getElementById("fName").value = item.name;
+      document.getElementById("fPrice").value = item.price;
+      document.getElementById("fDesc").value = item.desc || "";
+      if(item.img){ prev.src = item.img; prev.style.display="block"; dzText.innerHTML = "Current photo — tap to replace"; }
+      else { prev.style.display="none"; dzText.innerHTML='Tap to add a photo'; }
+      document.getElementById("saveLabel").textContent = "Save changes";
+    };
+  }
+
+  function renderManage(){
+    var host = document.getElementById("tabManage");
+    var cat = loadCatalog();
+    if(!cat || !cat.length){
+      host.innerHTML = '<p class="helper" style="margin-top:0">No pieces of your own yet. Add your first from the <b>Add / edit</b> tab — your customers are currently seeing our sample collection.</p>';
+      return;
+    }
+    host.innerHTML = '<div class="adm-list">' + cat.map(function(it){
+      var thumb = it.img ? '<img class="thumb" src="'+esc(it.img)+'" alt="">' :
+        '<div class="thumb" style="display:flex;align-items:center;justify-content:center;color:var(--brass-deep);font-size:.6rem;text-align:center">No photo</div>';
+      return '<div class="adm-item" data-id="'+it.id+'">'+ thumb +
+        '<div class="info"><b>'+esc(it.name)+'</b><span>'+money(it.price)+'</span></div>'+
+        '<div class="acts">'+
+          '<button class="icon-btn edit" title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 20h4l10-10-4-4L4 16v4zM14 6l4 4"/></svg></button>'+
+          '<button class="icon-btn danger del" title="Remove"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></button>'+
+        '</div></div>';
+    }).join("") + '</div>';
+
+    host.querySelectorAll(".adm-item").forEach(function(row){
+      var id = row.dataset.id;
+      row.querySelector(".edit").onclick = function(){
+        var item = (loadCatalog()||[]).filter(function(x){return x.id===id;})[0];
+        if(!item) return;
+        // switch to add tab
+        body.querySelector('[data-tab="add"]').click();
+        renderAddForm._loadEdit(item);
+        body.scrollTop = 0;
+      };
+      row.querySelector(".del").onclick = function(){
+        if(!confirm("Remove this piece from your collection?")) return;
+        var cat2 = (loadCatalog()||[]).filter(function(x){return x.id!==id;});
+        if(cat2.length){ saveCatalog(cat2); }
+        else { try{ localStorage.removeItem(LS_CAT); }catch(e){} } // back to samples if none left
+        renderCollection(); renderManage();
+        var addTab = document.getElementById("tabAdd");
+        toast("Piece removed.");
+      };
+    });
+  }
+
+  function renderTools(){
+    var host = document.getElementById("tabTools");
+    host.innerHTML =
+      '<p class="helper" style="margin-top:0"><b>Keep a backup, or make your catalogue permanent.</b><br>'+
+      'Your pieces are saved on this device. To back them up — or to have them shown to every customer on the live site — export your catalogue and keep the file safe. To make it the permanent public catalogue, send that file to whoever manages your site and it can be built right in.</p>'+
+      '<div class="adm-actions">'+
+      '<button class="mini-btn solid" id="expBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download my catalogue</button>'+
+      '<button class="mini-btn" id="copyBtn">Copy as text</button>'+
+      '</div>'+
+      '<div class="field field-sm" style="margin-top:1.3rem"><label for="impArea">Restore from a backup</label>'+
+      '<textarea id="impArea" placeholder="Paste your catalogue text here to restore it…"></textarea></div>'+
+      '<button class="mini-btn" id="impBtn" style="width:100%;justify-content:center">Restore catalogue</button>'+
+      '<hr style="border:none;border-top:1px solid var(--line);margin:1.5rem 0">'+
+      '<div class="field field-sm"><label for="newPin">Change your owner PIN</label>'+
+      '<input id="newPin" type="text" placeholder="New PIN"></div>'+
+      '<button class="mini-btn" id="pinSave" style="width:100%;justify-content:center">Save new PIN</button>';
+
+    var cat = getCatalog();
+    document.getElementById("expBtn").onclick = function(){
+      var data = JSON.stringify(loadCatalog() || SAMPLE, null, 2);
+      var blob = new Blob([data], {type:"application/json"});
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "salia-catalogue.json";
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+      toast("Catalogue downloaded.");
+    };
+    document.getElementById("copyBtn").onclick = function(){
+      var data = JSON.stringify(loadCatalog() || SAMPLE);
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(data).then(function(){ toast("Copied to clipboard."); },
+          function(){ toast("Couldn't copy — use Download instead."); });
+      } else { toast("Copy not supported here — use Download instead."); }
+    };
+    document.getElementById("impBtn").onclick = function(){
+      var txt = document.getElementById("impArea").value.trim();
+      if(!txt){ toast("Paste a backup first."); return; }
+      try{
+        var arr = JSON.parse(txt);
+        if(!Array.isArray(arr)) throw new Error("bad");
+        // basic sanity: ensure objects have name
+        arr = arr.filter(function(x){ return x && x.name; }).map(function(x){
+          return { id:x.id||uid(), name:String(x.name), price:Number(x.price)||0, desc:String(x.desc||""), img:x.img||null };
+        });
+        if(!arr.length) throw new Error("empty");
+        saveCatalog(arr); renderCollection(); renderManage();
+        toast("Catalogue restored ("+arr.length+" pieces).");
+      }catch(e){ toast("That backup didn't look right. Check the text and try again."); }
+    };
+    document.getElementById("pinSave").onclick = function(){
+      var v = document.getElementById("newPin").value.trim();
+      if(v.length < 4){ toast("Use at least 4 characters."); return; }
+      try{ localStorage.setItem(LS_PIN, v); toast("PIN updated."); document.getElementById("newPin").value=""; }
+      catch(e){ toast("Couldn't save PIN on this device."); }
+    };
+  }
+
+  // ---- wire admin open/close ----
+  document.getElementById("adminOpen").onclick = openDrawer;
+  document.getElementById("drawerClose").onclick = closeDrawer;
+  overlay.onclick = closeDrawer;
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeDrawer(); });
+  // open admin via #atelier or #admin hash
+  if(/^#(atelier|admin)$/.test(location.hash)) setTimeout(openDrawer, 400);
+
+  // ================= misc UI =================
+  // nav scroll state
+  var nav = document.getElementById("nav");
+  function onScroll(){ if(window.scrollY > 12) nav.classList.add("scrolled"); else nav.classList.remove("scrolled"); }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  // mobile menu
+  var navToggle = document.getElementById("navToggle");
+  navToggle.onclick = function(){
+    var open = nav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", open ? "true":"false");
+  };
+  nav.querySelectorAll(".nav-links a").forEach(function(a){
+    a.addEventListener("click", function(){ nav.classList.remove("open"); navToggle.setAttribute("aria-expanded","false"); });
+  });
+
+  // contact form -> whatsapp
+  document.getElementById("cfSend").onclick = function(){
+    var name = document.getElementById("cf-name").value.trim();
+    var item = document.getElementById("cf-item").value.trim();
+    var msg = document.getElementById("cf-msg").value.trim();
+    if(!msg && !item){ toast("Add a short message so we know how to help."); return; }
+    var parts = [];
+    parts.push("Hello Salia Atelier!");
+    if(name) parts.push("My name is " + name + ".");
+    if(item) parts.push('I\'m interested in the "' + item + '".');
+    if(msg) parts.push(msg);
+    window.open(waLink(parts.join(" ")), "_blank", "noopener");
+  };
+
+  // year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // hero reveal (one orchestrated moment)
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce){
+    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+  } else {
+    requestAnimationFrame(function(){
+      setTimeout(function(){ document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); }); }, 60);
+    });
+  }
+
+  // ---- initial render ----
+  renderCollection();
+  renderTesti();
+})();
+</script>
+</body>
+</html>
