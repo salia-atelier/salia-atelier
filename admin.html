@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Studio Desk | Salia Atelier</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">S</span>
+        <span class="brand-text">
+          <span class="brand-name">Salia Atelier</span>
+          <span class="brand-place">Studio desk</span>
+        </span>
+      </a>
+      <nav class="site-nav is-open" style="position:static;display:flex;background:none;border:0;padding:0">
+        <a href="collection.html">View collection</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="admin-lock" data-lock>
+      <span class="eyebrow">Private studio</span>
+      <h1>Add clothes to the site</h1>
+      <p>This page is for you, the atelier owner. The first time you visit, create a short PIN. After that, enter the same PIN to add photos of garments you have in stock.</p>
+      <form data-pin-form>
+        <div class="form-row">
+          <label for="pin">Studio PIN</label>
+          <input id="pin" name="pin" type="password" minlength="4" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Open studio desk</button>
+        <p class="form-status" data-pin-hint></p>
+      </form>
+    </section>
+
+    <section class="admin-wrap hidden" data-studio>
+      <span class="eyebrow">New garment</span>
+      <h1>Upload a piece</h1>
+      <p>Choose a photo from your phone, write the name, a short description, and the price in Kenyan shillings. It will appear on the Collection page immediately on this device.</p>
+      <form data-item-form>
+        <div class="form-row">
+          <label for="photo">Photo of the garment</label>
+          <input id="photo" name="photo" type="file" accept="image/*" required>
+        </div>
+        <div class="preview-frame" data-preview></div>
+        <div class="form-row">
+          <label for="item-name">Name</label>
+          <input id="item-name" name="name" placeholder="e.g. Soft linen wrap" required>
+        </div>
+        <div class="form-row">
+          <label for="item-description">Description</label>
+          <textarea id="item-description" name="description" required placeholder="Colour, fabric, when to wear it..."></textarea>
+        </div>
+        <div class="form-row">
+          <label for="price">Price (KES)</label>
+          <input id="price" name="price" type="number" min="1" step="1" required>
+        </div>
+        <button class="btn btn-gold" type="submit">Save to collection</button>
+      </form>
+      <h2 style="margin-top:2rem">Currently on the site</h2>
+      <div class="admin-list" data-admin-list></div>
+    </section>
+  </main>
+
+  <script src="js/products.js?v=2"></script>
+  <script src="js/admin.js?v=2"></script>
+</body>
+</html>
