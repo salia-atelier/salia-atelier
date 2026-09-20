@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Salia Atelier — Clothing, nails &amp; hair, across Kenya</title>
-<meta name="description" content="Salia Atelier is a Kenyan boutique — quality clothing, Ankara ponchos, nails and hair, with delivery across the country. Order on WhatsApp." />
+<title>Silai Atelier — Ponchos, kimonos, nails &amp; hair</title>
+<meta name="description" content="Silai Atelier, Kiserian. Polar-fleece Ankara ponchos, long kimono sets, nail art and hair. Order on WhatsApp 0791 307 166 — delivered across Kenya." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -133,9 +133,27 @@
   }
   .hero-tag .soft{ color:var(--ink-soft); }
   .hero-cta{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:.2rem; }
+  .trust{ display:flex; flex-wrap:wrap; gap:.55rem 1.15rem; margin-top:1.35rem; padding-top:1.1rem; border-top:1px solid var(--line); }
+  .trust span{ font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--ink-soft); }
   .hero-media{ position:relative; overflow:hidden; background:#1A140F; min-height:100%; }
-  .hero-media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 16%; display:block; }
-  .hero-shade{ display:none; }
+  .hero-media::after{ content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(90deg, rgba(26,20,15,.22) 0%, transparent 40%); }
+  .hero-media img, .hero-media video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 18%; display:block; background:#1A140F; }
+  .film{
+    background:var(--cream);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .film-inner{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr); gap:clamp(28px,5vw,64px); align-items:center; }
+  .film-copy h2{ font-size:clamp(1.8rem,3vw,2.6rem); margin-bottom:.8rem; }
+  .film-stage{
+    position:relative; border-radius:18px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:var(--shadow); background:#1A140F; aspect-ratio:4/5; max-height:min(78vh, 720px); margin-inline:auto; width:min(100%, 420px);
+  }
+  .film-stage img, .film-stage video{ width:100%; height:100%; object-fit:cover; object-position:center 18%; display:block; }
+  @media (max-width:800px){
+    .film-inner{ grid-template-columns:1fr; }
+    .film-stage{ max-height:min(70vh, 560px); }
+  }
   .hero-sub{ display:flex; align-items:center; gap:.9rem; margin:1.1rem 0 1.3rem; }
   .hero-sub .line{ height:1.5px; width:clamp(38px,7vw,74px); background:var(--brass); }
   .hero-sub span{ font-size:.82rem; letter-spacing:.26em; text-transform:uppercase; font-weight:700; color:var(--ink-soft); }
@@ -433,14 +451,14 @@
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a class="brandmark" href="#top" aria-label="Salia Atelier home">
-      <span class="b1">Salia</span><span class="b2">Atelier</span>
+    <a class="brandmark" href="#top" aria-label="Silai Atelier home">
+      <span class="b1">Silai</span><span class="b2">Atelier</span>
     </a>
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="#collection">Collection</a></li>
+        <li><a href="#lookbook">Lookbook</a></li>
         <li><a href="#story">Our story</a></li>
-        <li><a href="#voices">Voices</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -462,18 +480,23 @@
   <section class="hero">
     <div class="hero-copy-col">
       <div class="hero-copy">
-        <p class="eyebrow">Across Kenya · Est. 2026</p>
-        <h1 class="hero-word"><em>Salia</em><br>Atelier</h1>
-        <p class="hero-tag">Considered clothing, ponchos, nails &amp; hair — <span class="soft">delivered across Kenya.</span></p>
+        <p class="eyebrow">Across Kenya · WhatsApp 0791 307 166</p>
+        <h1 class="hero-word"><em>Silai</em><br>Atelier</h1>
+        <p class="hero-tag">Ponchos, long kimonos, nails &amp; hair — <span class="soft">made in Kiserian, sent across Kenya.</span></p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#collection">Shop the collection
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-ghost" href="https://wa.me/254791307166" target="_blank" rel="noopener">Book on WhatsApp</a>
         </div>
+        <div class="trust">
+          <span>Kiserian atelier</span>
+          <span>Kenya-wide WhatsApp</span>
+          <span>Original lookbook</span>
+        </div>
       </div>
     </div>
     <div class="hero-media">
-      <img id="heroPhoto" src="assets/hero-ankara.jpg" alt="Woman in a purple and white Ankara dress and gele standing on a park walkway" loading="eager" fetchpriority="high">
+      <img src="assets/poncho-anga.jpg" alt="Navy fleece poncho with Ankara collar and imaginary lady appliqué">
     </div>
   </section>
 
@@ -481,7 +504,25 @@
   <section class="intro section">
     <div class="wrap">
       <h2>A small atelier with a big heart.</h2>
-      <p>Salia Atelier is a Kenyan boutique for beautifully made clothing and Ankara ponchos, with salon-quality nail and hair care — where a handful of thoughtfully chosen pieces beat a rack full of the ordinary. Every piece is checked and finished by hand, then delivered to you personally, wherever you are in Kenya. Approachable luxury, made with heart.</p>
+      <p>Silai Atelier is a Kenyan boutique for beautifully made clothing and Ankara ponchos, with salon-quality nail and hair care — where a handful of thoughtfully chosen pieces beat a rack full of the ordinary. Every piece is checked and finished by hand, then delivered to you personally, wherever you are in Kenya. Approachable luxury, made with heart.</p>
+    </div>
+  </section>
+
+  <!-- ============ LOOKBOOK ============ -->
+  <section class="film section" id="lookbook">
+    <div class="wrap film-inner">
+      <div class="film-copy">
+        <p class="eyebrow">Lookbook</p>
+        <h2>The pieces, as they are.</h2>
+        <p class="lead">This season’s ponchos and long kimono sets, as they are. Same WhatsApp line to order — 0791 307 166.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#collection">See every piece</a>
+          <a class="btn btn-ghost" href="https://wa.me/254791307166" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </div>
+      <div class="film-stage">
+        <img src="assets/poncho-malkia.jpg" alt="Burgundy fleece poncho with Ankara hem and imaginary lady appliqué" loading="lazy">
+      </div>
     </div>
   </section>
 
@@ -492,7 +533,7 @@
         <div class="sec-head" style="margin-bottom:0">
           <p class="eyebrow">The Collection</p>
           <h2>In the atelier now</h2>
-          <p>Everything we have just now — ponchos and clothing to shop, plus nail and hair services to book. Found something you love? Tap the WhatsApp button on any item and we'll take it from there, all over one friendly chat.</p>
+          <p>Ponchos and long kimono sets to shop, plus nail and hair looks to book. Tap WhatsApp on any piece.</p>
         </div>
       </div>
       <div id="collectionGrid" aria-live="polite"></div>
@@ -505,7 +546,7 @@
       <p class="eyebrow">As heard in our atelier</p>
       <div class="strip-grid">
         <div class="strip-quote">
-          <p>"The appliqué is even lovelier in person — I felt proud the moment I put it on."</p>
+          <p>"The fleece is even lovelier in person — I felt proud the moment I put it on."</p>
           <cite>— Wanjiku M., Nairobi</cite>
         </div>
         <div class="strip-quote">
@@ -530,12 +571,12 @@
       <div class="story-grid">
         <div class="story-figure">
           <div class="photo-frame story-frame">
-            <img id="storyPhoto" class="illus" alt="Woman in a brown dress and headwrap seated in a sunlit interior" loading="lazy">
+            <img id="storyPhoto" class="illus" alt="Navy fleece poncho with Ankara collar and imaginary lady appliqué" loading="lazy">
             <span class="frame-cap">Hand-finished in our Kiserian atelier</span>
           </div>
         </div>
         <div class="story-copy">
-          <p>Salia Atelier began in 2026 with a sewing table, a good eye, and one quiet belief: that a woman anywhere in Kenya deserves clothing made with the same care as anywhere in the world. We started with a small circle of friends and neighbours — a hand-finished poncho here, a custom appliqué piece there — and a promise to never hand over a piece we wouldn't be proud to wear ourselves.</p>
+          <p>Silai Atelier began in 2026 with a sewing table, a good eye, and one quiet belief: that a woman anywhere in Kenya deserves clothing made with the same care as anywhere in the world. We started with a small circle of friends and neighbours — a hand-finished poncho here, a custom appliqué piece there — and a promise to never hand over a piece we wouldn't be proud to wear ourselves.</p>
           <p>Word travelled the way good things do here: gently, from one satisfied client to the next. What was a side table soon became a proper little atelier, filled with fabric we'd chosen by hand and pieces we'd finished late into the evening. We stayed small on purpose — because staying small is how we keep knowing your name, your size, and the fit you love.</p>
           <p>Today we're still a young, growing house, and proud of it. Every garment that leaves our door carries a bit of that first table with it: made with patience, delivered in person, and worn, we hope, with a little more confidence than before. This is only the beginning — and we're so glad you're here for it.</p>
 
@@ -570,7 +611,7 @@
       <div class="sec-head">
         <p class="eyebrow">Voices</p>
         <h2>In their own words</h2>
-        <p>Real warmth from real clients — on fit, on delivery, and on how it felt to wear a Salia piece.</p>
+        <p>Real warmth from real clients — on fit, on delivery, and on how it felt to wear a Silai piece.</p>
       </div>
       <div class="t-grid" id="testimonials"></div>
     </div>
@@ -638,9 +679,9 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <div class="b1">Salia Atelier</div>
+        <div class="b1">Silai Atelier</div>
         <div class="b2">Across Kenya</div>
-        <p>Considered clothing, lovingly made and personally delivered. Est. 2026.</p>
+        <p>Considered clothing, lovingly made and personally delivered. WhatsApp 0791 307 166.</p>
       </div>
       <div class="foot-nav">
         <div class="foot-col">
@@ -662,8 +703,8 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="year"></span> Salia Atelier. Made with care in Kenya.</span>
-      <span>Approachable luxury. Catalogue photos via Pexels.</span>
+      <span>© <span id="year"></span> Silai Atelier. Made with care in Kenya.</span>
+      <span>Approachable luxury. Original atelier photography.</span>
     </div>
   </div>
 </footer>
@@ -694,7 +735,7 @@
   "use strict";
   var WA = "254791307166";   // primary order & booking line
   var WA2 = "254707436816";  // second line
-  var LS_CAT = "salia.catalog.v6";
+  var LS_CAT = "silai.catalog.v11";
   var LS_PIN = "salia.pin.v1";
   var DEFAULT_PIN = "salia2026";
 
@@ -733,85 +774,76 @@
 
   // ---- sample catalog (shown until the owner adds their own) ----
   var CATS = [
-    { key:"poncho",   label:"Ankara Ponchos", blurb:"Our signature hand-appliquéd and embroidered ponchos — each one a little different.", kind:"shop" },
-    { key:"clothing", label:"Clothing",       blurb:"Considered, quality pieces for every day and every occasion.", kind:"shop" },
-    { key:"nails",    label:"Nail Care",      blurb:"Manicures, gels and nail art, finished with care.", kind:"service", banner:"assets/banner-nails.jpg", bannerAlt:"Woman checking her manicure at a nail salon" },
-    { key:"hair",     label:"Hair Styling",   blurb:"Braids, styling and treatments to leave you looking and feeling your best.", kind:"service", banner:"assets/banner-hair.jpg", bannerAlt:"Woman with long knotless braids" }
+    { key:"poncho",   label:"Fleece Ponchos", blurb:"Smooth polar fleece with Ankara at the collar, sleeves and hem, plus imaginary lady art and maps of Africa.", kind:"shop", banner:"assets/poncho-anga.jpg", bannerAlt:"Navy fleece poncho with Ankara collar" },
+    { key:"clothing", label:"Kimono & trouser", blurb:"Long open Ankara kimonos with matching palazzo trousers — blue, green and maroon.", kind:"shop", banner:"assets/set-maroon.jpg", bannerAlt:"Long maroon Ankara kimono with palazzo trousers" },
+    { key:"nails",    label:"Nail Care",      blurb:"French, art, animal print and stilettos — finished in the atelier.", kind:"service", banner:"assets/nails-soft-french.jpg", bannerAlt:"Soft pink French manicure with a 3D flower" },
+    { key:"hair",     label:"Hair Styling",   blurb:"Passion twists, French curls, boho braids, knotless and curly ponies.", kind:"service", banner:"assets/hair-passion-copper.jpg", bannerAlt:"Long copper passion twists" }
   ];
 
   var SAMPLE = [
-    { id:"p1", cat:"poncho", name:"Malkia Poncho", price:2000, img:"assets/poncho-malkia.jpg",
-      alt:"Woman wearing the Malkia marled poncho with a hand-appliquéd portrait and purple Ankara headwrap",
-      desc:"A cosy marled poncho crowned with a hand-appliquéd portrait — a woman in profile beneath an Ankara headwrap in rich purples. Warm, bold, and one of a kind." },
-    { id:"p2", cat:"poncho", name:"Nuru Poncho", price:2000, img:"assets/poncho-nuru.jpg",
-      alt:"Woman wearing the Nuru deep-red poncho with gold embroidery and a vivid Ankara headwrap",
-      desc:"Deep-red marled poncho with a gold hand-embroidered profile and a vivid Ankara headwrap. A statement piece that still feels like a hug on a cool morning." },
-    { id:"p3", cat:"poncho", name:"Anga Poncho", price:2000, img:"assets/poncho-anga.jpg",
-      alt:"Woman wearing the Anga navy poncho with gold embroidery and a geometric blue Ankara headwrap",
-      desc:"Navy marled poncho finished with a golden embroidered profile and a geometric Ankara headwrap in blues. Understated from afar, striking up close." },
-    { id:"p4", cat:"poncho", name:"Zawadi Poncho", price:2000, img:"assets/poncho-zawadi.jpg",
-      alt:"Woman wearing the Zawadi olive-green poncho with a hand-stitched portrait and geometric Ankara crown",
-      desc:"Olive-green marled poncho with a hand-stitched profile and a bold geometric Ankara crown. Earthy, warm, and easy to style." },
-    { id:"p5", cat:"poncho", name:"Asili Poncho", price:2000, img:"assets/poncho-asili.jpg",
-      alt:"Woman wearing the Asili rust-toned poncho with a bold Ankara appliqué and orange stitching",
-      desc:"Rust-toned marled poncho with a bold Ankara appliqué motif and orange satin-stitch detailing. Cosy, characterful, and proudly handmade." },
+    { id:"p1", cat:"poncho", name:"Malkia Poncho", price:2000, img:"assets/poncho-malkia.jpg", pos:"center 20%",
+      alt:"Burgundy fleece poncho with Ankara collar, lining and imaginary lady appliqué",
+      desc:"Smooth burgundy polar fleece with Ankara at the collar, sleeves and hem, and a hand-appliquéd imaginary African lady." },
+    { id:"p2", cat:"poncho", name:"Nuru Poncho", price:2000, img:"assets/poncho-nuru.jpg", pos:"center 18%",
+      alt:"Deep-red fleece poncho with gold-outline lady art and Ankara trim",
+      desc:"Deep-red polar fleece with a gold-outline imaginary African lady and vivid Ankara at the collar, cuffs and hem." },
+    { id:"p3", cat:"poncho", name:"Anga Poncho", price:2000, img:"assets/poncho-anga.jpg", pos:"center 18%",
+      alt:"Navy fleece poncho with imaginary lady appliqué and Ankara lining",
+      desc:"Navy polar fleece with a gold-outline imaginary African lady and geometric Ankara in blues." },
+    { id:"p4", cat:"poncho", name:"Zawadi Poncho", price:2000, img:"assets/poncho-zawadi.jpg", pos:"center 18%",
+      alt:"Olive fleece poncho with geometric crown art and Ankara trim",
+      desc:"Olive polar fleece with a gold-outline imaginary African lady and a bold geometric Ankara crown." },
+    { id:"p5", cat:"poncho", name:"Asili Poncho", price:2000, img:"assets/poncho-asili.jpg", pos:"center 18%",
+      alt:"Rust fleece poncho with a map of Africa appliqué",
+      desc:"Rust polar fleece with a map of Africa appliqué in red, black and dotted Ankara." },
 
-    { id:"c1", cat:"clothing", name:"The Neema Wrap", price:4500, img:"assets/clothing-wrap-dress.jpg",
-      alt:"Woman in a floral wrap and checked blazer",
-      desc:"Our signature wrap in soft, breathable cotton — flattering on every shape, tie-adjustable, and endlessly easy to wear." },
-    { id:"c2", cat:"clothing", name:"Naserian Shirt", price:2800, img:"assets/clothing-linen-shirt.jpg",
-      alt:"Woman in a relaxed white shirt and long braids",
-      desc:"A relaxed, everyday linen shirt with a gentle drape. Named for a friend who wore the very first one." },
-    { id:"c3", cat:"clothing", name:"Ngong Hills Trench", price:6200, img:"assets/clothing-trench.jpg",
-      alt:"Woman in a long plaid coat and afro on a city street",
-      desc:"A lightweight trench for cool highland mornings — clean lines, a considered collar, quietly elegant." },
-    { id:"c4", cat:"clothing", name:"Amani Silk Set", price:5400, img:"assets/clothing-two-piece.jpg",
-      alt:"Woman in a black silk shirt and trousers with red braids",
-      desc:"Coordinated top and trousers you can wear together or apart. Comfortable enough for a full, busy day." },
-    { id:"c5", cat:"clothing", name:"Tumaini Ankara Maxi", price:3600, img:"assets/clothing-maxi-skirt.jpg",
-      alt:"Woman in a yellow and red Ankara maxi seated in a park",
-      desc:"A flowing maxi that moves beautifully. Deep pockets, a smooth waistband, and just the right weight." },
-    { id:"c6", cat:"clothing", name:"Baraka Blazer", price:5900, img:"assets/clothing-blazer.jpg",
-      alt:"Woman in a navy tailored blazer and white roll-neck",
-      desc:"A structured blazer finished by hand — the piece that turns an ordinary outfit into an occasion." },
+    { id:"c1", cat:"clothing", name:"Blue Kimono Set", price:3500, img:"assets/set-blue.jpg", pos:"center 12%",
+      alt:"Long blue Ankara kimono vest with matching palazzo trousers",
+      desc:"Long open kimono with black binding and matching wide trousers in original blue Ankara. Inner top included in the look; sold as a two-piece." },
+    { id:"c2", cat:"clothing", name:"Green Kimono Set", price:3500, img:"assets/set-green.jpg", pos:"center 12%",
+      alt:"Long green Ankara kimono vest with matching palazzo trousers",
+      desc:"Knee-length open kimono and palazzo trousers in leaf-print green Ankara, finished with black binding." },
+    { id:"c3", cat:"clothing", name:"Maroon Kimono Set", price:3500, img:"assets/set-maroon.jpg", pos:"center 12%",
+      alt:"Long maroon Ankara kimono vest with matching palazzo trousers",
+      desc:"Long maroon Ankara two-piece — open kimono vest and matching trousers, made to move." },
 
-    { id:"n1", cat:"nails", name:"Classic Manicure", price:500, img:"assets/nails-classic.jpg", pos:"center 40%",
-      alt:"Woman showing a classic nude French manicure",
-      desc:"A tidy, polished finish — shaping, cuticle care and a colour of your choice." },
-    { id:"n2", cat:"nails", name:"Gel Manicure", price:1000, img:"assets/nails-gel.jpg", pos:"center 48%",
-      alt:"Hand with red gel polish curing under a UV lamp",
-      desc:"Long-lasting, high-shine gel that stays flawless for weeks." },
-    { id:"n3", cat:"nails", name:"Acrylic Full Set", price:1500, img:"assets/nails-acrylic.jpg", pos:"center 38%",
-      alt:"Long nude acrylic nails beside salon colour swatches",
-      desc:"Custom length and shape, built and finished to suit you." },
-    { id:"n4", cat:"nails", name:"Nail Art (per set)", price:1800, img:"assets/nails-art.jpg", pos:"center 46%",
-      alt:"Nail technician painting a design with a fine brush",
-      desc:"Hand-painted designs — from subtle to statement. Bring a picture or let us surprise you." },
-    { id:"n5", cat:"nails", name:"Classic Pedicure", price:800, img:"assets/nails-pedicure.jpg", pos:"center 42%",
-      alt:"Feet with red pedicure polish during a spa treatment",
-      desc:"A soothing soak, scrub and polish to leave your feet happy." },
+    { id:"n1", cat:"nails", name:"Soft French", price:1500, img:"assets/nails-soft-french.jpg", pos:"center 50%",
+      alt:"Square baby-pink French manicure with a 3D flower",
+      desc:"Square tips, milky pink, a thin white smile line and a single 3D bloom. Quiet luxury for everyday." },
+    { id:"n2", cat:"nails", name:"Pretty Girl Set", price:2000, img:"assets/nails-pink-bow.jpg", pos:"center 45%",
+      alt:"Pink French coffin nails with 3D bows",
+      desc:"Glossy pink French with 3D bows and flowers. Soft, pretty, and made to photograph well." },
+    { id:"n3", cat:"nails", name:"Safari Print", price:2200, img:"assets/nails-safari.jpg", pos:"center 48%",
+      alt:"Long nails in leopard, zebra and giraffe print",
+      desc:"Leopard, zebra and giraffe on a nude base — a statement set with a gold accent nail." },
+    { id:"n4", cat:"nails", name:"Sunset Abstract", price:2000, img:"assets/nails-sunset.jpg", pos:"center 48%",
+      alt:"Orange and black abstract nails with leopard spots",
+      desc:"Chrome orange, black swirl and a hint of leopard. Bold without being noisy." },
+    { id:"n5", cat:"nails", name:"Stiletto Atelier", price:2200, img:"assets/nails-stiletto.jpg", pos:"center 48%",
+      alt:"Pink stiletto nails with white tips and bows",
+      desc:"Long stilettos in milky pink with white tips, bows and florals. For evenings and occasions." },
 
-    { id:"h1", cat:"hair", name:"Knotless Braids", price:2500, img:"assets/hair-knotless.jpg", pos:"center 28%",
-      alt:"Woman with long knotless box braids in a black two-piece",
-      desc:"Neat, lightweight and long-lasting knotless braids, sized to your preference." },
-    { id:"h2", cat:"hair", name:"Cornrows / Lines", price:1000, img:"assets/hair-cornrows.jpg", pos:"center 32%",
-      alt:"Woman with neat cornrows styled close to the scalp",
-      desc:"Clean, crisp cornrows — simple straightbacks or a custom pattern." },
-    { id:"h3", cat:"hair", name:"Silk Press", price:1500, img:"assets/hair-silk-press.jpg", pos:"center 28%",
-      alt:"Woman with long, sleek pressed hair and a fringe",
-      desc:"A smooth, bouncy silk press with heat protection and shine." },
-    { id:"h4", cat:"hair", name:"Wash & Blow-Dry", price:800, img:"assets/hair-wash.jpg", pos:"center 42%",
-      alt:"Woman having her hair washed at a salon basin",
-      desc:"A refreshing wash, condition and blow-dry, ready to style." },
-    { id:"h5", cat:"hair", name:"Twist-Out Styling", price:1200, img:"assets/hair-twist-out.jpg", pos:"center 28%",
-      alt:"Woman with a defined natural afro and twist-out texture",
-      desc:"Defined, springy twist-outs that show off your natural texture." }
+    { id:"h1", cat:"hair", name:"Passion Twists", price:4500, img:"assets/hair-passion-copper.jpg", pos:"center 22%",
+      alt:"Long copper and honey passion twists",
+      desc:"Neat diamond parts, copper-to-honey passion twists. Lightweight, long, and finished to last." },
+    { id:"h2", cat:"hair", name:"French Curl Braids", price:5000, img:"assets/hair-french-burgundy.jpg", pos:"center 20%",
+      alt:"Long burgundy French curl braids",
+      desc:"Burgundy French curls with a silky fall. A colour that reads expensive in any light." },
+    { id:"h3", cat:"hair", name:"Boho Braids", price:5500, img:"assets/hair-boho.jpg", pos:"center 28%",
+      alt:"Boho braids with curly ends and a cornrowed crown",
+      desc:"Swirl cornrows into curly boho ends. Soft at the face, structured at the crown." },
+    { id:"h4", cat:"hair", name:"Knotless Luxe", price:4800, img:"assets/hair-knotless-luxe.jpg", pos:"center 18%",
+      alt:"Long black knotless braids with curled ends",
+      desc:"Classic black knotless with curled ends — the braid that makes a blazer look considered." },
+    { id:"h5", cat:"hair", name:"Curly Ponytail", price:2500, img:"assets/hair-pony-curls.jpg", pos:"center 30%",
+      alt:"High ponytail with honey curly extensions",
+      desc:"Sleek high pony, neat braid base, honey curls. Quick glamour that still looks finished." }
   ];
 
   // ---- testimonials ----
   var TESTI = [
     { n:"Wanjiku Mwangi", city:"Nairobi", g:"Malkia Poncho",
-      q:"I ordered the Malkia and the appliqué is even more beautiful in person. It's so warm and soft, and three people stopped me to ask where it was from. I felt proud wearing something this special." },
+      q:"I ordered the Malkia and the fleece is even more beautiful in person. It's so warm and soft, and three people stopped me to ask where it was from. I felt proud wearing something this special." },
     { n:"Achieng Otieno", city:"Kisumu", g:"Nuru Poncho",
       q:"The Nuru is now my go-to for chilly mornings. It arrived within two days, folded so neatly it felt like a gift to myself. The embroidery still looks brand new after several washes." },
     { n:"Naserian Sankale", city:"Kiserian", g:"Anga Poncho",
@@ -820,8 +852,10 @@
       q:"Bought the Zawadi for my wife and she hasn't taken it off since. The whole thing happened over WhatsApp in one evening — easy, warm, no stress. It's rare to be looked after like that." },
     { n:"Njeri Kamau", city:"Thika", g:"Asili Poncho",
       q:"The Asili is the cosiest thing I own and the design is such a talking point. It came exactly when they said it would. I've already sent two friends their way — this is how a small business should feel." },
-    { n:"Amina Hassan", city:"Mombasa", g:"Malkia Poncho",
-      q:"I wore my Malkia on a cool coast evening and loved it. What stayed with me was the personal follow-up message a week later just to check the fit was right. Who does that anymore?" }
+    { n:"Amina Hassan", city:"Mombasa", g:"Passion Twists",
+      q:"The passion twists sat so light I forgot I was wearing them. Colour matched what we agreed on WhatsApp, and the parts were immaculate." },
+    { n:"Zawadi Njeri", city:"Nairobi", g:"Soft French",
+      q:"Booked the Soft French before a Friday dinner. They looked expensive without shouting — exactly the finish I wanted." }
   ];
 
   // ---- state ----
@@ -850,8 +884,8 @@
       : phSvg(it.cat||"poncho");
     var tag = it.img ? "" : '<span class="card-tag">Photo coming soon</span>';
     var msg = service
-      ? 'Hello Salia Atelier! I would love to book "'+it.name+'" ('+money(it.price)+'). When are you available?'
-      : 'Hello Salia Atelier! I would love to order the "'+it.name+'" ('+money(it.price)+'). Is it available?';
+      ? 'Hello Silai Atelier! I would love to book "'+it.name+'" ('+money(it.price)+'). When are you available?'
+      : 'Hello Silai Atelier! I would love to order the "'+it.name+'" ('+money(it.price)+'). Is it available?';
     var label = service ? "Book via WhatsApp" : "Order via WhatsApp";
     return ''+
     '<article class="card'+(service?' card-service':'')+'">'+
@@ -1021,7 +1055,7 @@
       '<div class="field field-sm"><label for="fCat">Category</label>'+
       '<select id="fCat">'+
         '<option value="poncho">Ankara Ponchos</option>'+
-        '<option value="clothing">Clothing</option>'+
+        '<option value="clothing">Kimono &amp; trouser</option>'+
         '<option value="nails">Nail Care</option>'+
         '<option value="hair">Hair Styling</option>'+
       '</select></div>'+
@@ -1172,7 +1206,7 @@
       var blob = new Blob([data], {type:"application/json"});
       var a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = "salia-catalogue.json";
+      a.download = "salier-catalogue.json";
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
       toast("Catalogue downloaded.");
@@ -1238,7 +1272,7 @@
     var msg = document.getElementById("cf-msg").value.trim();
     if(!msg && !item){ toast("Add a short message so we know how to help."); return; }
     var parts = [];
-    parts.push("Hello Salia Atelier!");
+    parts.push("Hello Silai Atelier!");
     if(name) parts.push("My name is " + name + ".");
     if(item) parts.push('I\'m interested in the "' + item + '".');
     if(msg) parts.push(msg);
@@ -1258,8 +1292,7 @@
     });
   }
 
-  var _hp = document.getElementById('heroPhoto'); if(_hp) _hp.src = 'assets/hero-ankara.jpg';
-  var _sp = document.getElementById('storyPhoto'); if(_sp) _sp.src = 'assets/story-atelier.jpg';
+  var _sp = document.getElementById('storyPhoto'); if(_sp) _sp.src = 'assets/poncho-anga.jpg';
 
   // ---- initial render ----
   renderCollection();

@@ -1,6 +1,6 @@
-# Salia Atelier
+# Silai Atelier
 
-The website for **Salia Atelier** — a boutique fashion atelier in Kiserian, Kajiado County, Kenya. Est. 2026.
+The website for **Silai Atelier** — a boutique fashion atelier in Kiserian, Kajiado County, Kenya. Est. 2026.
 
 Considered clothing, lovingly made and personally delivered. Orders are taken over WhatsApp.
 
