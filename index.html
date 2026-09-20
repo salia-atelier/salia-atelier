@@ -110,45 +110,43 @@
   /* ---------- hero ---------- */
   .hero{
     position:relative; isolation:isolate;
-    min-height:min(92vh, 820px);
-    display:flex; align-items:flex-end;
-    padding: clamp(72px, 12vw, 120px) 0 clamp(48px, 7vw, 72px);
-    color:#F7F0E4;
+    display:grid; grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.18fr);
+    min-height:min(86vh, 760px);
+    background:var(--cream);
+    color:var(--ink);
   }
-  .hero-media{ position:absolute; inset:0; z-index:-1; overflow:hidden; background:#1A140F; }
-  .hero-media img{ width:100%; height:100%; object-fit:cover; object-position:center 22%; display:block; }
-  .hero-shade{
-    position:absolute; inset:0;
-    background:
-      linear-gradient(90deg, rgba(22,16,12,.82) 0%, rgba(22,16,12,.55) 42%, rgba(22,16,12,.18) 100%),
-      linear-gradient(180deg, rgba(22,16,12,.25) 0%, rgba(22,16,12,.45) 100%);
+  .hero-copy-col{
+    display:flex; align-items:center;
+    padding: clamp(88px, 9vw, 120px) clamp(28px, 5vw, 72px) clamp(40px, 5vw, 64px);
   }
-  @media (max-width:800px){
-    .hero{ min-height:min(88vh, 720px); align-items:flex-end; }
-    .hero-shade{
-      background:
-        linear-gradient(180deg, rgba(22,16,12,.15) 0%, rgba(22,16,12,.55) 42%, rgba(22,16,12,.88) 100%);
-    }
-    .hero-media img{ object-position:center 18%; }
-  }
-  .hero-copy{ position:relative; z-index:1; max-width:18ch; }
-  .hero-copy .eyebrow{ color:#E4C48A; }
-  .hero-copy .eyebrow::before{ background:#E4C48A; }
+  .hero-copy{ position:relative; z-index:1; max-width:34rem; width:100%; }
+  .hero-copy .eyebrow{ color:var(--brass-deep); }
+  .hero-copy .eyebrow::before{ background:var(--brass); }
   .hero-word{
-    font-size:clamp(3.4rem, 11vw, 7.4rem); font-weight:500; line-height:.9; letter-spacing:-.03em;
-    font-optical-sizing:auto; color:#F7F0E4; text-shadow:0 12px 40px rgba(0,0,0,.28);
+    font-size:clamp(2.8rem, 5.6vw, 5.1rem); font-weight:500; line-height:.92; letter-spacing:-.03em;
+    font-optical-sizing:auto; color:var(--ink);
   }
-  .hero-word em{ font-style:italic; font-weight:400; color:#E8C58A; }
+  .hero-word em{ font-style:italic; font-weight:400; color:var(--brass-deep); }
+  .hero-tag{
+    font-family:"Fraunces"; font-size:clamp(1.12rem, .95rem + .75vw, 1.42rem); line-height:1.4; font-weight:400;
+    max-width:28ch; margin:1.15rem 0 1.5rem; color:var(--ink-soft);
+  }
+  .hero-tag .soft{ color:var(--ink-soft); }
+  .hero-cta{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:.2rem; }
+  .hero-media{ position:relative; overflow:hidden; background:#1A140F; min-height:100%; }
+  .hero-media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 16%; display:block; }
+  .hero-shade{ display:none; }
   .hero-sub{ display:flex; align-items:center; gap:.9rem; margin:1.1rem 0 1.3rem; }
-  .hero-sub .line{ height:1.5px; width:clamp(38px,7vw,74px); background:#E4C48A; }
-  .hero-sub span{ font-size:.82rem; letter-spacing:.26em; text-transform:uppercase; font-weight:700; color:#E8DCC8; }
-  .hero-tag{ font-family:"Fraunces"; font-size:clamp(1.28rem,1rem + 1.8vw,1.95rem); line-height:1.28; font-weight:400; max-width:22ch; margin-bottom:1.5rem; color:#F3E8D6; }
-  .hero-tag .soft{ color:#D9CBB6; }
-  .hero-cta{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:.4rem; }
-  .hero .btn-primary{ background:#F7F0E4; color:#2A2018; }
-  .hero .btn-primary:hover{ background:#E8C58A; color:#2A2018; }
-  .hero .btn-ghost{ color:#F7F0E4; border-color:rgba(247,240,228,.7); }
-  .hero .btn-ghost:hover{ background:#F7F0E4; color:#2A2018; }
+  .hero-sub .line{ height:1.5px; width:clamp(38px,7vw,74px); background:var(--brass); }
+  .hero-sub span{ font-size:.82rem; letter-spacing:.26em; text-transform:uppercase; font-weight:700; color:var(--ink-soft); }
+  @media (max-width:800px){
+    .hero{ grid-template-columns:1fr; min-height:0; }
+    .hero-media{ min-height:min(52vh, 420px); order:-1; }
+    .hero-copy-col{ padding: 28px 4vw 40px; }
+    .hero-word{ font-size:clamp(2.5rem, 12vw, 3.8rem); }
+    .hero-tag{ max-width:28ch; }
+    .hero-cta .btn{ width:100%; justify-content:center; }
+  }
 
   .btn{ display:inline-flex; align-items:center; gap:.55rem; font-weight:600; font-size:.92rem; text-decoration:none; cursor:pointer; border:none; border-radius:999px; padding:.85rem 1.5rem; transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease; }
   .btn-primary{ background:var(--ink); color:var(--cream); box-shadow:var(--shadow-sm); }
@@ -462,19 +460,20 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero-media">
-      <img id="heroPhoto" alt="Woman in a purple and white Ankara dress and gele" loading="eager">
-      <div class="hero-shade" aria-hidden="true"></div>
-    </div>
-    <div class="wrap hero-copy">
-      <p class="eyebrow reveal r1">Across Kenya · Est. 2026</p>
-      <h1 class="hero-word reveal r1"><em>Salia</em><br>Atelier</h1>
-      <p class="hero-tag reveal r2">Considered clothing, <span class="soft">lovingly made close to home.</span></p>
-      <div class="hero-cta reveal r3">
-        <a class="btn btn-primary" href="#collection">Shop the collection
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-wa" href="https://wa.me/254791307166" target="_blank" rel="noopener">Book on WhatsApp</a>
+    <div class="hero-copy-col">
+      <div class="hero-copy">
+        <p class="eyebrow">Across Kenya · Est. 2026</p>
+        <h1 class="hero-word"><em>Salia</em><br>Atelier</h1>
+        <p class="hero-tag">Considered clothing, ponchos, nails &amp; hair — <span class="soft">delivered across Kenya.</span></p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#collection">Shop the collection
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="https://wa.me/254791307166" target="_blank" rel="noopener">Book on WhatsApp</a>
+        </div>
       </div>
+    </div>
+    <div class="hero-media">
+      <img id="heroPhoto" src="assets/hero-ankara.jpg" alt="Woman in a purple and white Ankara dress and gele standing on a park walkway" loading="eager" fetchpriority="high">
     </div>
   </section>
 
@@ -695,7 +694,7 @@
   "use strict";
   var WA = "254791307166";   // primary order & booking line
   var WA2 = "254707436816";  // second line
-  var LS_CAT = "salia.catalog.v5";
+  var LS_CAT = "salia.catalog.v6";
   var LS_PIN = "salia.pin.v1";
   var DEFAULT_PIN = "salia2026";
 
@@ -757,7 +756,7 @@
       alt:"Woman wearing the Asili rust-toned poncho with a bold Ankara appliqué and orange stitching",
       desc:"Rust-toned marled poncho with a bold Ankara appliqué motif and orange satin-stitch detailing. Cosy, characterful, and proudly handmade." },
 
-    { id:"c1", cat:"clothing", name:"The Kiserian Wrap", price:4500, img:"assets/clothing-wrap-dress.jpg",
+    { id:"c1", cat:"clothing", name:"The Neema Wrap", price:4500, img:"assets/clothing-wrap-dress.jpg",
       alt:"Woman in a floral wrap and checked blazer",
       desc:"Our signature wrap in soft, breathable cotton — flattering on every shape, tie-adjustable, and endlessly easy to wear." },
     { id:"c2", cat:"clothing", name:"Naserian Shirt", price:2800, img:"assets/clothing-linen-shirt.jpg",
