@@ -533,7 +533,7 @@
         <div class="sec-head" style="margin-bottom:0">
           <p class="eyebrow">The Collection</p>
           <h2>In the atelier now</h2>
-          <p>Ponchos and long kimono sets to shop, plus nail and hair looks to book. Tap WhatsApp on any piece.</p>
+          <p>Ponchos, kimonos, dress-and-top sets and Ankara tops to shop, plus nail and hair looks to book. Tap WhatsApp on any piece.</p>
         </div>
       </div>
       <div id="collectionGrid" aria-live="polite"></div>
@@ -735,7 +735,7 @@
   "use strict";
   var WA = "254791307166";   // primary order & booking line
   var WA2 = "254707436816";  // second line
-  var LS_CAT = "silai.catalog.v11";
+  var LS_CAT = "silai.catalog.v13";
   var LS_PIN = "salia.pin.v1";
   var DEFAULT_PIN = "salia2026";
 
@@ -775,9 +775,9 @@
   // ---- sample catalog (shown until the owner adds their own) ----
   var CATS = [
     { key:"poncho",   label:"Fleece Ponchos", blurb:"Smooth polar fleece with Ankara at the collar, sleeves and hem, plus imaginary lady art and maps of Africa.", kind:"shop", banner:"assets/poncho-anga.jpg", bannerAlt:"Navy fleece poncho with Ankara collar" },
-    { key:"clothing", label:"Kimono & trouser", blurb:"Long open Ankara kimonos with matching palazzo trousers — blue, green and maroon.", kind:"shop", banner:"assets/set-maroon.jpg", bannerAlt:"Long maroon Ankara kimono with palazzo trousers" },
-    { key:"nails",    label:"Nail Care",      blurb:"French, art, animal print and stilettos — finished in the atelier.", kind:"service", banner:"assets/nails-soft-french.jpg", bannerAlt:"Soft pink French manicure with a 3D flower" },
-    { key:"hair",     label:"Hair Styling",   blurb:"Passion twists, French curls, boho braids, knotless and curly ponies.", kind:"service", banner:"assets/hair-passion-copper.jpg", bannerAlt:"Long copper passion twists" }
+    { key:"clothing", label:"Kimonos, dresses & tops", blurb:"Long kimono sets, dress-and-top pairs, and off-shoulder Ankara tops.", kind:"shop", banner:"assets/dress-emerald.jpg", bannerAlt:"Emerald brocade top with matching dress" },
+    { key:"nails",    label:"Nail Care",      blurb:"French, solid pink, cherry leopard, neon cow, black gold and stilettos.", kind:"service", banner:"assets/nails-soft-french.jpg", bannerAlt:"Soft pink French manicure with a 3D flower" },
+    { key:"hair",     label:"Hair Styling",   blurb:"Twists, locs, cornrows, Fulani, dollies, buns and sleek ponies.", kind:"service", banner:"assets/hair-passion-copper.jpg", bannerAlt:"Long copper passion twists" }
   ];
 
   var SAMPLE = [
@@ -806,6 +806,18 @@
     { id:"c3", cat:"clothing", name:"Maroon Kimono Set", price:3500, img:"assets/set-maroon.jpg", pos:"center 12%",
       alt:"Long maroon Ankara kimono vest with matching palazzo trousers",
       desc:"Long maroon Ankara two-piece — open kimono vest and matching trousers, made to move." },
+    { id:"c4", cat:"clothing", name:"Emerald Dress & Top", price:3500, img:"assets/dress-emerald.jpg", pos:"center 28%",
+      alt:"Emerald brocade puff-sleeve top with matching green dress",
+      desc:"Puff-sleeve brocade top in green and gold, paired with an emerald dress. Sold as a set." },
+    { id:"c5", cat:"clothing", name:"Lime Dress & Top", price:3500, img:"assets/dress-lime.jpg", pos:"center 22%",
+      alt:"Lime and gold printed puff-sleeve top with matching lime dress",
+      desc:"Square-neck puff-sleeve top in lime, gold and white, with a matching lime dress. Sold as a set." },
+    { id:"c6", cat:"clothing", name:"Cocoa Off-Shoulder", price:2300, img:"assets/top-cocoa.jpg", pos:"center 35%",
+      alt:"Brown, white and black Ankara off-shoulder top",
+      desc:"Off-shoulder Ankara top only — cocoa, cream and black rings, puff sleeves, sweetheart neck." },
+    { id:"c7", cat:"clothing", name:"Ember Off-Shoulder", price:2300, img:"assets/top-ember.jpg", pos:"center 22%",
+      alt:"Orange geometric Ankara off-shoulder top",
+      desc:"Off-shoulder Ankara top only — ember orange with geometric bands and a pointed hem." },
 
     { id:"n1", cat:"nails", name:"Soft French", price:1500, img:"assets/nails-soft-french.jpg", pos:"center 50%",
       alt:"Square baby-pink French manicure with a 3D flower",
@@ -822,6 +834,18 @@
     { id:"n5", cat:"nails", name:"Stiletto Atelier", price:2200, img:"assets/nails-stiletto.jpg", pos:"center 48%",
       alt:"Pink stiletto nails with white tips and bows",
       desc:"Long stilettos in milky pink with white tips, bows and florals. For evenings and occasions." },
+    { id:"n6", cat:"nails", name:"Cherry Leopard", price:2200, img:"assets/nails-cherry-leopard.jpg", pos:"center 48%",
+      alt:"Cherry-red nails mixed with leopard print and a gold cherry charm",
+      desc:"Glossy cherry red with warm leopard accents and a gold cherry charm. A set that photographs loud." },
+    { id:"n7", cat:"nails", name:"Neon Cow Print", price:2200, img:"assets/nails-neon-cow.jpg", pos:"center 48%",
+      alt:"Neon lime coffin nails with black-and-white cow print",
+      desc:"Lime gel, cow print and a black accent nail. Party-ready, made in the atelier." },
+    { id:"n8", cat:"nails", name:"Black Gold Leopard", price:2200, img:"assets/nails-black-leopard.jpg", pos:"center 48%",
+      alt:"Jet-black nails with gold leopard spots",
+      desc:"Jet black with gold leopard and a slim chain detail. Evening nails with a bite." },
+    { id:"n9", cat:"nails", name:"Baby Pink Gloss", price:1500, img:"assets/nails-baby-pink.jpg", pos:"center 50%",
+      alt:"Short square nails in solid glossy baby pink",
+      desc:"Solid baby-pink gel, square and glossy. Clean, quiet, and easy to wear every day." },
 
     { id:"h1", cat:"hair", name:"Passion Twists", price:4500, img:"assets/hair-passion-copper.jpg", pos:"center 22%",
       alt:"Long copper and honey passion twists",
@@ -837,7 +861,40 @@
       desc:"Classic black knotless with curled ends — the braid that makes a blazer look considered." },
     { id:"h5", cat:"hair", name:"Curly Ponytail", price:2500, img:"assets/hair-pony-curls.jpg", pos:"center 30%",
       alt:"High ponytail with honey curly extensions",
-      desc:"Sleek high pony, neat braid base, honey curls. Quick glamour that still looks finished." }
+      desc:"Sleek high pony, neat braid base, honey curls. Quick glamour that still looks finished." },
+    { id:"h6", cat:"hair", name:"Sleek High Ponytail", price:2500, img:"assets/hair-sleek-pony.jpg", pos:"center 22%",
+      alt:"Sleek jet-black high ponytail with laid edges",
+      desc:"Straight high pony, edges laid, no curls. Sharp from the office to dinner." },
+    { id:"h7", cat:"hair", name:"Braided Updo", price:4000, img:"assets/hair-braided-updo.jpg", pos:"center 18%",
+      alt:"Cornrowed sides feeding into a high twisted bun",
+      desc:"Sides cornrowed into a high twisted bun. Elegant enough for a wedding, light enough for a weekday." },
+    { id:"h8", cat:"hair", name:"Afro Sleek Front", price:3000, img:"assets/hair-afro-sleek.jpg", pos:"center 20%",
+      alt:"Natural afro puffs with a sleek gelled middle part",
+      desc:"Natural afro volume with a sleek gelled front. Texture on display, hairline considered." },
+    { id:"h9", cat:"hair", name:"Neat Cornrows", price:3500, img:"assets/hair-cornrows.jpg", pos:"center 22%",
+      alt:"Straight-back black cornrows continuing into long braids",
+      desc:"Clean straight-backs into long hanging braids. Neat parts, no bulk at the root." },
+    { id:"h10", cat:"hair", name:"Fulani Braids", price:5000, img:"assets/hair-fulani.jpg", pos:"center 22%",
+      alt:"Fulani-style black braids with a thin cornrowed hairline",
+      desc:"Center part, thin hairline cornrows, long small braids. Classic Fulani, finished quietly." },
+    { id:"h11", cat:"hair", name:"Spring Twists", price:4500, img:"assets/hair-spring-twists.jpg", pos:"center 20%",
+      alt:"Burgundy spring twists in two high buns",
+      desc:"Springy burgundy twists, two high buns, length left down. Playful without looking unfinished." },
+    { id:"h12", cat:"hair", name:"Soft Locs", price:5000, img:"assets/hair-soft-locs.jpg", pos:"center 28%",
+      alt:"Small-part black soft locs over the shoulder",
+      desc:"Soft locs on small square parts. Fluffy, lightweight, and easy to live in." },
+    { id:"h13", cat:"hair", name:"Stitch Braids", price:4000, img:"assets/hair-stitch.jpg", pos:"center 22%",
+      alt:"Swirl stitch cornrows into a low curly bun",
+      desc:"Stitch swirl into a low curly bun, with two tendrils at the face. Sculpted and soft at once." },
+    { id:"h14", cat:"hair", name:"Butterfly Locs", price:5500, img:"assets/hair-butterfly-locs.jpg", pos:"center 20%",
+      alt:"Burgundy butterfly locs with two high buns",
+      desc:"Burgundy butterfly locs, two high buns, a few beads. Volume with a lot of movement." },
+    { id:"h15", cat:"hair", name:"Dolly Braids", price:4800, img:"assets/hair-dolly.jpg", pos:"center 22%",
+      alt:"Shoulder-length black dolly braids with curly ends",
+      desc:"Shoulder-length knotless with a curly dolly bob. Neat at the scalp, full at the ends." },
+    { id:"h16", cat:"hair", name:"Sleek Bun", price:2500, img:"assets/hair-sleek-bun.jpg", pos:"center 18%",
+      alt:"Sleek black high bun with laid edges",
+      desc:"High sleek bun, edges laid, two tendrils. Fast polish that still looks expensive." }
   ];
 
   // ---- testimonials ----
@@ -1055,7 +1112,7 @@
       '<div class="field field-sm"><label for="fCat">Category</label>'+
       '<select id="fCat">'+
         '<option value="poncho">Ankara Ponchos</option>'+
-        '<option value="clothing">Kimono &amp; trouser</option>'+
+        '<option value="clothing">Kimonos, dresses &amp; tops</option>'+
         '<option value="nails">Nail Care</option>'+
         '<option value="hair">Hair Styling</option>'+
       '</select></div>'+
